@@ -1,0 +1,33 @@
+.pizza{
+    border: none; 
+    display: inline-block;
+    width: 22.5%;
+    transform: -4px;
+    -webkit-box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff; 
+    -moz-box-shadow: 0px 0px 2px #bababa,  inset 0px 0px 1px #ffffff;  
+    box-shadow:0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;  
+}
+
+.pizza:hover{
+    border: none; 
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px; 
+    border-radius: 4px; 
+    -webkit-box-shadow:7px 7px 8px #bababa, inset 0px 0px 1px #ffffff; 
+    -moz-box-shadow: 7px 7px 8px #bababa,  inset 0px 0px 1px #ffffff;  
+    box-shadow:7px 7px 8px #bababa, inset 0px 0px 1px #ffffff;  
+    transform: translateY(-4px);
+}
+
+.pizzaimage{
+    width: 200px;
+    height: 200px;
+}
+
+li{
+    list-style-type: none;
+}
+
+#ingr{
+    display: none;
+}
