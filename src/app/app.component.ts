@@ -9,9 +9,37 @@ class Pizza{
   info: string;
   price: Object;
   image: string;
-  defaultSize: string = '22 cm';
+  defaultSize: string;
+
+  constructor(name, info, price, image){
+    this.name = name;
+    this.info = info;
+    this.image = image;
+    this.price = price;
+  }
 }
 
+class Ingredient{
+  name: string;
+  price: number;
+  image: string;
+
+  constructor(name, price, image){
+    this.name = name;
+    this.price = price;
+    this.image = image;
+  }
+}
+
+class Order{
+  items: Object[];
+  totalPrice: number;
+
+  constructor(items, totalPrice){
+    this.items = items;
+    this.totalPrice = totalPrice;
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -21,7 +49,10 @@ class Pizza{
 
 export class AppComponent {
   pizza: Pizza[] = [];
-  showPizza: Pizza;
+  showPizza: Pizza = new Pizza('','',{},'');
+  order: Order = new Order([], 0);
+  totalPrice: number;
+  ingredients: Ingredient[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -34,8 +65,18 @@ export class AppComponent {
     }))
   }
 
+  getIngredients(): Observable<Ingredient[]> {
+    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
+      let ingrList = data['Інгредієнти'];
+      return ingrList.map((ingr: any) => {
+        return {name: ingr.name, price: ingr.price, image: ingr.image}
+      })
+    }))
+  }
+
   ngOnInit(){
-    this.getPizza().subscribe((data) => this.pizza = data)
+    this.getPizza().subscribe((data) => this.pizza = data);
+    this.getIngredients().subscribe((data) => this.ingredients = data);
   }
 
   setSize(p: Pizza, size: string){
@@ -44,10 +85,41 @@ export class AppComponent {
         i.defaultSize = size;
       }
     }
+    this.order.totalPrice = p.price[p.defaultSize];
+    this.order.items = [p];
   }
 
   showIngredients(p: Pizza){
-    document.getElementById('ingr').style.display = 'block';
     this.showPizza = p;
+    this.addToOrder(p);
+    document.getElementById('ingr').style.display = 'block';
+  }
+
+  addToOrder(item){
+    this.order.items.push(item);
+
+    if(item.price instanceof Object){
+      this.order.totalPrice += item.price[item.defaultSize];
+    }
+    else this.order.totalPrice += item.price;
+  }
+
+  deleteFromOrder(item){
+    let i = this.order.items.findIndex(el => el == item);
+    if(item.price instanceof Object && this.getCountOfItems(item) == 1) return;
+    else if (i == -1) return;
+
+    else{
+      this.order.items.splice(i, 1);
+      
+      if(item.price instanceof Object){
+        this.order.totalPrice -= item.price[item.defaultSize];
+      }
+      else this.order.totalPrice -= item.price;
+    }
+  }
+
+  getCountOfItems(i){
+    return this.order.items.filter(item => item == i).length;
   }
 }
