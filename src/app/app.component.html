@@ -13,6 +13,9 @@
   </ul>
 </div>
 
+<p class="basket">
+  Корзина {{countOfOrders}}
+</p>
 
 <div id="ingr">
   <div class = "ingrblock">
@@ -39,9 +42,8 @@
           <button (click)="setSize(showPizza, '30 cm')">30 cm</button>
           <button (click)="setSize(showPizza, '36 cm')">36 cm</button>
         </li>
-        <li><button (click)="addToOrder(showPizza)">+</button>
-            <button (click)="deleteFromOrder(showPizza)">-</button></li>
         <li>{{ order.totalPrice }} грн</li>
+        <li><button (click)="addPizzaToBasket()">Додати в корзину</button></li>
       </ul>
   </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
@@ -34,10 +34,12 @@ class Ingredient{
 class Order{
   items: Object[];
   totalPrice: number;
+  count: number;
 
-  constructor(items, totalPrice){
+  constructor(items, totalPrice, count){
     this.items = items;
     this.totalPrice = totalPrice;
+    this.count = count;
   }
 }
 
@@ -50,11 +52,12 @@ class Order{
 export class AppComponent {
   pizza: Pizza[] = [];
   showPizza: Pizza = new Pizza('','',{},'');
-  order: Order = new Order([], 0);
+  order: Order = new Order([], 0, 0);
+  countOfOrders: number = JSON.parse(localStorage.getItem('Order')).length;
   totalPrice: number;
   ingredients: Ingredient[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private el: ElementRef) { }
 
   getPizza(): Observable<Pizza[]> {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
@@ -91,7 +94,8 @@ export class AppComponent {
 
   showIngredients(p: Pizza){
     this.showPizza = p;
-    this.addToOrder(p);
+    this.order.totalPrice = p.price[p.defaultSize];
+    this.order.items = [p];
     document.getElementById('ingr').style.display = 'block';
   }
 
@@ -102,6 +106,31 @@ export class AppComponent {
       this.order.totalPrice += item.price[item.defaultSize];
     }
     else this.order.totalPrice += item.price;
+  }
+
+  addPizzaToBasket(){
+    let obj = new Array();
+    let data = JSON.parse(localStorage.getItem('Order'));
+    if(data == null){
+      obj.push(this.order);
+      localStorage.setItem('Order', JSON.stringify(obj));
+    }
+
+    else{
+      this.order.items.sort((a, b) => a['name'] > b['name'] ? 1 : -1);
+      for(let i of data){
+        i.items.sort((a, b) => a['name'] > b['name'] ? 1 : -1);
+        if(JSON.stringify(i.items) == JSON.stringify(this.order.items)){
+          i.count++;
+          localStorage.setItem(`Order`, JSON.stringify(data));
+          return;
+        }
+      }
+
+      data.push(this.order);
+      localStorage.setItem(`Order`, JSON.stringify(data));
+      this.countOfOrders++;
+    } 
   }
 
   deleteFromOrder(item){

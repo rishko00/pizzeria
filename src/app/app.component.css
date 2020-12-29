@@ -73,3 +73,10 @@ li{
   width: 15%;
   height: 40%;
 }
+
+.basket{
+  width: 10%;
+  height: 5%;
+  background-color: red;
+  color: white;
+}
