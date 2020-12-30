@@ -125,4 +125,11 @@ export class PizzaComponent {
       this.order.totalPrice -= item.price;
     }
   }
+
+  getCountOfItems(i){
+    if(this.order.item['ingredients']){
+      return this.order.item['ingredients'];
+    }
+    else return 
+  }
 }

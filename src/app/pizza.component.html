@@ -9,6 +9,7 @@
       <button (click)="setSize(p, '36 cm')">36 cm</button>
     </li>
     <li>{{ p.price[p.defaultSize]}} грн</li>
+    <li><button (click)="addPizzaToBasket()">Додати в корзину</button></li>
     <li><p class="add" (click)="showIngredients(p)">+ Додати інгредієнти</p></li>
   </ul>
 </div>
