@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza.component';
 import { BasketComponent } from './basket.component';
+import { ConstructorComponent } from './constructor.component';
 import { BasketService } from './basket.service';
 import { Routes, RouterModule} from '@angular/router';
 
@@ -15,7 +16,7 @@ const appRoutes: Routes =[
 
 @NgModule({
   declarations: [
-    AppComponent, PizzaComponent, BasketComponent
+    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent
   ],
   imports: [
     BrowserModule,
