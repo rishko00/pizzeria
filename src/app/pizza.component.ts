@@ -2,6 +2,7 @@ import { Component, HostListener, ElementRef } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
+import { BasketService } from './basket.service';
 
 
 class Pizza{
@@ -58,7 +59,7 @@ export class PizzaComponent {
   totalPrice: number;
   ingredients: Ingredient[] = [];
 
-  constructor(private http: HttpClient, private el: ElementRef) { }
+  constructor(private http: HttpClient, private basket: BasketService) { }
 
   getPizza(): Observable<Pizza[]> {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
@@ -112,6 +113,7 @@ export class PizzaComponent {
   }
 
   addPizzaToBasket(){
+    this.basket.add(this.order)
   }
 
   deleteFromOrder(item){
