@@ -34,7 +34,7 @@ class Ingredient{
 }
 
 class Order{
-  item: Object;
+  item: Pizza;
   totalPrice: number;
   count: number;
 
@@ -46,15 +46,15 @@ class Order{
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'pizza',
+  templateUrl: './pizza.component.html',
+  styleUrls: ['./pizza.component.css']
 })
 
-export class AppComponent {
+export class PizzaComponent {
   pizza: Pizza[] = [];
   showPizza: Pizza = new Pizza('','',{},'', []);
-  order: Order = new Order({}, 0, 0);
+  order: Order = new Order(new Pizza('','',{},'', []), 0, 0);
   totalPrice: number;
   ingredients: Ingredient[] = [];
 
@@ -64,7 +64,7 @@ export class AppComponent {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
       let pizzaList = data['Pizza'];
       return pizzaList.map((pizza: any) => {
-        return {name: pizza.name, info: pizza.info, price: pizza.price, image: pizza.image, defaultSize: '22 cm'}
+        return {name: pizza.name, info: pizza.info, price: pizza.price, image: pizza.image, defaultSize: '22 cm', ingredients: []}
       })
     }))
   }
@@ -90,48 +90,28 @@ export class AppComponent {
       }
     }
     this.order.totalPrice = p.price[p.defaultSize];
-    this.order.items = [p];
+    this.order.item = p;
   }
 
   showIngredients(p: Pizza){
     this.showPizza = p;
     this.order.totalPrice = p.price[p.defaultSize];
-    this.order.items = [p];
+    this.order.item = p;
     document.getElementById('ingr').style.display = 'block';
   }
 
   addToOrder(item){
-    this.order.items.push(item);
-
     if(item.price instanceof Object){
+      this.order.item = item;
       this.order.totalPrice += item.price[item.defaultSize];
     }
-    else this.order.totalPrice += item.price;
+    else {
+      this.order.item['ingredients'].push(item);
+      this.order.totalPrice += item.price;
+    }
   }
 
   addPizzaToBasket(){
-    let obj = new Array();
-    let data = JSON.parse(localStorage.getItem('Order'));
-    if(data == null){
-      obj.push(this.order);
-      localStorage.setItem('Order', JSON.stringify(obj));
-    }
-
-    else{
-      this.order.items.sort((a, b) => a['name'] > b['name'] ? 1 : -1);
-      for(let i of data){
-        i.items.sort((a, b) => a['name'] > b['name'] ? 1 : -1);
-        if(JSON.stringify(i.items) == JSON.stringify(this.order.items)){
-          i.count++;
-          localStorage.setItem(`Order`, JSON.stringify(data));
-          return;
-        }
-      }
-
-      data.push(this.order);
-      localStorage.setItem(`Order`, JSON.stringify(data));
-      this.countOfOrders++;
-    } 
   }
 
   deleteFromOrder(item){

@@ -1,0 +1,50 @@
+<div class="pizza" *ngFor="let p of pizza">
+  <ul>
+    <li><img class="pizzaimage" src="{{ p.image }}"/></li>
+    <li>{{ p.name }}</li>
+    <li>{{ p.info | slice:0:54}}...</li>
+    <li>
+      <button (click)="setSize(p, '22 cm')">22 cm</button>
+      <button (click)="setSize(p, '30 cm')">30 cm</button>
+      <button (click)="setSize(p, '36 cm')">36 cm</button>
+    </li>
+    <li>{{ p.price[p.defaultSize]}} грн</li>
+    <li><a href="#" class="add" (click)="showIngredients(p)">+ Додати інгредієнти</a></li>
+  </ul>
+</div>
+
+<p class="basket">
+  Корзина {{countOfOrders}}
+</p>
+
+<div id="ingr">
+  <div class = "ingrblock">
+    <div class="ingredients">
+      <table>
+        <tr *ngFor="let i of ingredients">
+          <td> 
+            <img class="ingrimage" src="{{i.image}}"/>
+            {{i.name}}{{i.price}}
+            <button (click)="addToOrder(i)">+</button>
+            <button (click)="deleteFromOrder(i)">-</button>
+            {{ getCountOfItems(i) }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  <div class="pizzaitem">
+      <ul>
+        <li>{{ showPizza.name }}</li>
+        <li>{{ showPizza.info | slice:0:54}}...</li>
+        <li><img class="pizzaimage" src="{{ showPizza.image }}"/></li>
+        <li>
+          <button (click)="setSize(showPizza, '22 cm')">22 cm</button>
+          <button (click)="setSize(showPizza, '30 cm')">30 cm</button>
+          <button (click)="setSize(showPizza, '36 cm')">36 cm</button>
+        </li>
+        <li>{{ order.totalPrice }} грн</li>
+        <li><button (click)="addPizzaToBasket()">Додати в корзину</button></li>
+      </ul>
+  </div>
+  </div>
+<div>
