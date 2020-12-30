@@ -52,9 +52,9 @@ export class BasketService{
     }
 
     else{
-      order.item['ingredients'].sort();
+      if (order.item['ingredients']) order.item['ingredients'].sort();
       for(let i of data){
-        i.item['ingredients'].sort();
+        if (i.item['ingredients']) i.item['ingredients'].sort();
         if(JSON.stringify(i.item) == JSON.stringify(order.item)){
           i.count++;
           localStorage.setItem(`Order`, JSON.stringify(data));

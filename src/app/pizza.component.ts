@@ -113,25 +113,16 @@ export class PizzaComponent {
   }
 
   addPizzaToBasket(){
-    this.basket.add(this.order)
+    this.basket.add(this.order);
   }
 
   deleteFromOrder(item){
-    let i = this.order.items.findIndex(el => el == item);
-    if(item.price instanceof Object && this.getCountOfItems(item) == 1) return;
-    else if (i == -1) return;
+    let i = this.order.item['ingrdients'].findIndex(el => el == item);
+    if (i == -1) return;
 
     else{
-      this.order.items.splice(i, 1);
-      
-      if(item.price instanceof Object){
-        this.order.totalPrice -= item.price[item.defaultSize];
-      }
-      else this.order.totalPrice -= item.price;
+      this.order.item['ingredients'].splice(i, 1);
+      this.order.totalPrice -= item.price;
     }
-  }
-
-  getCountOfItems(i){
-    return this.order.items.filter(item => item == i).length;
   }
 }
