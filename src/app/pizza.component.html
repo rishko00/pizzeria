@@ -9,13 +9,9 @@
       <button (click)="setSize(p, '36 cm')">36 cm</button>
     </li>
     <li>{{ p.price[p.defaultSize]}} грн</li>
-    <li><a href="#" class="add" (click)="showIngredients(p)">+ Додати інгредієнти</a></li>
+    <li><p class="add" (click)="showIngredients(p)">+ Додати інгредієнти</p></li>
   </ul>
 </div>
-
-<p class="basket">
-  Корзина {{countOfOrders}}
-</p>
 
 <div id="ingr">
   <div class = "ingrblock">
