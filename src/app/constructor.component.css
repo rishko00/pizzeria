@@ -4,7 +4,8 @@
   border: 2px solid black;
   border-radius: 5%;
   overflow-y: scroll;
-  height: 75%;
+  height: 100%;
+  left: 0;
   position: absolute;
 }
 
@@ -16,14 +17,13 @@
   width: 55%;
   height: 100%;
   float: right;
-  display: block;
+  right: 0;
 }
 
 .constructor{
   width: 100%;
   height: 80%;
 }
-
 .pizzaimage{
   width: 100%;
   height: 100%;
@@ -36,5 +36,5 @@
 }
 
 .items{
-  position: r;
+  bottom: 0;
 }
