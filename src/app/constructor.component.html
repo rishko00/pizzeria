@@ -1,11 +1,25 @@
-<div class="ingrdients" *nfFor="let i of ingredients">
-  <img class="ingrimage" src="{{i.image}}"/>
-    {{i.name}}
-    <button (click)="addItem(i)">+</button>
-    <button (click)="deleteItem(i)">-</button>        
+<div *ngFor="let b of pizzaBase">
+  <button>{{ b.name }} 22 cm</button>
+  <button>{{ b.name }} 30 cm</button>
+  <button>{{ b.name }} 36 cm</button>
+</div>
+
+<div class="constructor">
+<div class="ingr">
+  <div class="ingrdients"  *ngFor="let i of ingredients">
+      <img class="ingrimage" src="{{i.image}}"/>
+        {{i.name}}
+        <button (click)="addItem(i)">+</button>
+        <button (click)="deleteItem(i)">-</button>        
+  </div>
+</div>
+
+  <div class="pizza">
+    <img class="pizzaimage" src="https://www.pizzaking.ua/upload/f81d1064-1337-4bbf-a894-909133be0aa2/constructor//d2e6e23d-49ef-4a74-a101-ac4100ab7c99.png">
+  </div>
 </div>
 
 
-<div *ngFor="let i of pizza.ingredients">
+<div class="items" *ngFor="let i of pizza.ingredients">
   {{ i.name }}   {{ i.price }}
 </div>
