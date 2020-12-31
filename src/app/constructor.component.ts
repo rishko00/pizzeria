@@ -71,6 +71,7 @@ export class ConstructorComponent {
   pizzaBase: PizzaBase[] = [];
   pizza: Pizza = new Pizza('Ваш шедевр', '', 0, 'https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', []);
   order: Order;
+  z: number = 0;
 
   constructor(private http: HttpClient){ }
   
@@ -99,6 +100,17 @@ export class ConstructorComponent {
 
   addItem(i){
     this.pizza.ingredients.push(i);
+    this.z++;
+    let elem = document.getElementById('pizza');
+    let addelem = document.createElement('img');
+    addelem.className = 'pizzaimage';
+    addelem.style.zIndex = String(this.z);
+    addelem.style.position = 'absolute';
+    addelem.style.width = '50%';
+    addelem.style.height = '65%';
+    addelem.style.float = 'right';
+    addelem.src = i['constructorImage'];
+    elem.appendChild(addelem);
   }
 
   deleteItem(i){
