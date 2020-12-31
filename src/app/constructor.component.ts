@@ -103,13 +103,13 @@ export class ConstructorComponent {
     this.z++;
     let elem = document.getElementById('pizza');
     let addelem = document.createElement('img');
+    addelem.src = i['constructorImage'];
     addelem.className = 'pizzaimage';
     addelem.style.zIndex = String(this.z);
     addelem.style.position = 'absolute';
     addelem.style.width = '50%';
     addelem.style.height = '65%';
     addelem.style.float = 'right';
-    addelem.src = i['constructorImage'];
     elem.appendChild(addelem);
   }
 
