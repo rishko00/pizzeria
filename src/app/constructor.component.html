@@ -1,0 +1,11 @@
+<div class="ingrdients" *nfFor="let i of ingredients">
+  <img class="ingrimage" src="{{i.image}}"/>
+    {{i.name}}
+    <button (click)="addItem(i)">+</button>
+    <button (click)="deleteItem(i)">-</button>        
+</div>
+
+
+<div *ngFor="let i of pizza.ingredients">
+  {{ i.name }}   {{ i.price }}
+</div>

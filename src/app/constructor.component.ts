@@ -35,6 +35,18 @@ class Ingredient{
   }
 }
 
+class PizzaBase{
+  name: string;
+  price: Object;
+  constructorImage: string;
+
+  constructor(name, price, constructorImage){
+    this.name = name;
+    this.price = price;
+    this.constructorImage = constructorImage;
+  }
+}
+
 class Order{
   item: Pizza;
   totalPrice: number;
@@ -56,8 +68,9 @@ class Order{
 
 export class ConstructorComponent {
   ingredients: Ingredient[] = [];
+  pizzaBase: PizzaBase[] = [];
   pizza: Pizza = new Pizza('Ваш шедевр', '', 0, 'https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', []);
-  order: Order
+  order: Order;
 
   constructor(private http: HttpClient){ }
   
@@ -65,13 +78,29 @@ export class ConstructorComponent {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
       let ingrList = data['Інгредієнти'];
       return ingrList.map((ingr: any) => {
-        return {name: ingr.name, price: ingr.price, image: ingr.image}
+        return {name: ingr.name, price: ingr.price, image: ingr.image, constructorImage: ingr.constructorImage }
+      })
+    }))
+  }
+
+  getPizzaBase(): Observable<PizzaBase[]> {
+    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
+      let baseList = data['Основи'];
+      return baseList.map((base: any) => {
+        return {name: base.name, price: base.price, constructorImage: base.constructorImage }
       })
     }))
   }
 
   ngOnInit(){
     this.getIngredients().subscribe((data) => this.ingredients = data);
+    this.getPizzaBase().subscribe((data) => this.pizzaBase = data);
   }
 
+  addItem(i){
+    this.pizza.ingredients.push(i);
+  }
+
+  deleteItem(i){
+  }
 }
