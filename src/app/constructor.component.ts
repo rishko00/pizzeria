@@ -103,7 +103,8 @@ export class ConstructorComponent {
     if(this.pizzaBase.includes(i)){
       this.pizza.info = i.name;
       this.pizza.defaultSize = size;
-      this.pizza.price[this.pizza.defaultSize] = Number(i.price);
+      this.pizza.price[this.pizza.defaultSize] = i.price[size];
+      this.pizza.ingredients = [];
       document.getElementById('addbutton').style.visibility = 'visible';
     }
 
@@ -142,6 +143,13 @@ export class ConstructorComponent {
       let c = this.pizza.ingredients.findIndex(el => el == i);
       this.pizza.ingredients.splice(c, 1);
       this.pizza.price[this.pizza.defaultSize] -= i.price;
+      let elements = document.getElementsByClassName('pizzaimage');
+      for(let j of elements){
+        if (i.constructorImage == j.getAttribute('src')){
+          document.getElementById('pizza').removeChild(j);
+          br
+        }
+      }
     }
   }
 
