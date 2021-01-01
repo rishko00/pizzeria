@@ -3,14 +3,15 @@
   <button (click)="addItem(b, '30 cm')">{{ b.name }} 30 cm</button>
   <button (click)="addItem(b, '36 cm')">{{ b.name }} 36 cm</button>
 </div>
-
+<button id="addbutton" (click)="addToBasket()"> Add to basket</button> {{ pizza.price[pizza.defaultSize]}}
 <div class="constructor">
 <div class="ingr">
   <div class="ingrdients"  *ngFor="let i of ingredients">
       <img class="ingrimage" src="{{i.image}}"/>
         {{i.name}}
         <button (click)="addItem(i)">+</button>
-        <button (click)="deleteItem(i)">-</button>        
+        <button (click)="deleteItem(i)">-</button>
+        {{ getCountOfItems(i) }}        
   </div>
 </div>
 

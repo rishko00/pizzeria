@@ -41,3 +41,7 @@
 .items{
   bottom: 0;
 }
+
+#addbutton{
+  visibility: hidden;
+}

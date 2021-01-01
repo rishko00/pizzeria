@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
+import { BasketService } from './basket.service';
 
 
 class Pizza{
@@ -69,11 +70,11 @@ class Order{
 export class ConstructorComponent {
   ingredients: Ingredient[] = [];
   pizzaBase: PizzaBase[] = [];
-  pizza: Pizza = new Pizza('Ваш шедевр', '', 0, 'https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', []);
+  pizza: Pizza = new Pizza('Ваш шедевр', '', {}, 'https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', []);
   order: Order;
   z: number = 0;
 
-  constructor(private http: HttpClient){ }
+  constructor(private http: HttpClient, private basket: BasketService){ }
   
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
@@ -102,6 +103,8 @@ export class ConstructorComponent {
     if(this.pizzaBase.includes(i)){
       this.pizza.info = i.name;
       this.pizza.defaultSize = size;
+      this.pizza.price[this.pizza.defaultSize] = Number(i.price);
+      document.getElementById('addbutton').style.visibility = 'visible';
     }
 
     else{
@@ -117,6 +120,7 @@ export class ConstructorComponent {
         }
         else{
           this.pizza.ingredients.push(i);
+          this.pizza.price[this.pizza.defaultSize] += Number(i.price);
           this.z++;
           let elem = document.getElementById('pizza');
           let addelem = document.createElement('img');
@@ -129,12 +133,20 @@ export class ConstructorComponent {
           addelem.style.float = 'right';
           elem.appendChild(addelem);
         }
-
       }
     }
   }
 
   deleteItem(i){
+    if(this.pizza.ingredients.includes(i)){
+      let c = this.pizza.ingredients.findIndex(el => el == i);
+      this.pizza.ingredients.splice(c, 1);
+      this.pizza.price[this.pizza.defaultSize] -= i.price;
+    }
+  }
+
+  addToBasket(){
+
   }
 
   getCountOfItems(i){
