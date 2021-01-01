@@ -67,4 +67,8 @@ export class BasketService{
       this.countOfOrders++;
     } 
   }
+
+  getItems(){
+    return JSON.parse(localStorage.getItem('Order'));
+  }
 }
