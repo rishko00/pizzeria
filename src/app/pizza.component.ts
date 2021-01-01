@@ -92,6 +92,7 @@ export class PizzaComponent {
     }
     this.order.totalPrice = p.price[p.defaultSize];
     this.order.item = p;
+    this.order.item['ingredients'] = [];
   }
 
   showIngredients(p: Pizza){
@@ -101,14 +102,14 @@ export class PizzaComponent {
     document.getElementById('ingr').style.display = 'block';
   }
 
-  addToOrder(item){
-    if(item.price instanceof Object){
-      this.order.item = item;
-      this.order.totalPrice += item.price[item.defaultSize];
+  addToOrder(i){
+    if(i.price instanceof Object){
+      this.order.item = i;
+      this.order.totalPrice += i.price[i.defaultSize];
     }
     else {
-      this.order.item['ingredients'].push(item);
-      this.order.totalPrice += item.price;
+      this.order.item['ingredients'].push(i);
+      this.order.totalPrice += i.price;
     }
   }
 
@@ -116,20 +117,26 @@ export class PizzaComponent {
     this.basket.add(this.order);
   }
 
-  deleteFromOrder(item){
-    let i = this.order.item['ingrdients'].findIndex(el => el == item);
-    if (i == -1) return;
+  deleteFromOrder(i){
+    
+    let c = this.order.item['ingrdients'].findIndex(el => el == i);
+    if (c == -1) return;
 
     else{
-      this.order.item['ingredients'].splice(i, 1);
-      this.order.totalPrice -= item.price;
+      this.order.item['ingredients'].splice(c, 1);
+      this.order.totalPrice -= i.price;
     }
   }
 
   getCountOfItems(i){
+    let count = 0;
     if(this.order.item['ingredients']){
-      return this.order.item['ingredients'];
+      for(let j of this.order.item['ingredients']){
+        if(i == j){
+          count++;
+        }
+      }
     }
-    else return 
+    return count;
   }
 }

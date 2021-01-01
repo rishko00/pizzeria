@@ -98,21 +98,54 @@ export class ConstructorComponent {
     this.getPizzaBase().subscribe((data) => this.pizzaBase = data);
   }
 
-  addItem(i){
-    this.pizza.ingredients.push(i);
-    this.z++;
-    let elem = document.getElementById('pizza');
-    let addelem = document.createElement('img');
-    addelem.src = i['constructorImage'];
-    addelem.className = 'pizzaimage';
-    addelem.style.zIndex = String(this.z);
-    addelem.style.position = 'absolute';
-    addelem.style.width = '50%';
-    addelem.style.height = '65%';
-    addelem.style.float = 'right';
-    elem.appendChild(addelem);
+  addItem(i, size?: string){
+    if(this.pizzaBase.includes(i)){
+      this.pizza.info = i.name;
+      this.pizza.defaultSize = size;
+    }
+
+    else{
+      if(this.pizza.info == ''){
+        alert('Спочатку виберіть основу піци');
+      }
+      else{
+        if(this.pizza.ingredients.length == 10){
+          alert('Max items');
+        }
+        else if(this.getCountOfItems(i) >= 5){
+          alert('Max item');
+        }
+        else{
+          this.pizza.ingredients.push(i);
+          this.z++;
+          let elem = document.getElementById('pizza');
+          let addelem = document.createElement('img');
+          addelem.src = i['constructorImage'];
+          addelem.className = 'pizzaimage';
+          addelem.style.zIndex = String(this.z);
+          addelem.style.position = 'absolute';
+          addelem.style.width = '50%';
+          addelem.style.height = '65%';
+          addelem.style.float = 'right';
+          elem.appendChild(addelem);
+        }
+
+      }
+    }
   }
 
   deleteItem(i){
+  }
+
+  getCountOfItems(i){
+    let count = 0;
+    if(this.pizza.ingredients){
+      for(let j of this.pizza.ingredients){
+        if(i == j){
+          count++;
+        }
+      }
+    }
+    return count;
   }
 }
