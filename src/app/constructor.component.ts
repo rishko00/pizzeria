@@ -71,7 +71,7 @@ export class ConstructorComponent {
   ingredients: Ingredient[] = [];
   pizzaBase: PizzaBase[] = [];
   pizza: Pizza = new Pizza('Ваш шедевр', '', {}, 'https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', []);
-  order: Order;
+  order: Order = new Order(this.pizza, 0, 1);
   z: number = 0;
 
   constructor(private http: HttpClient, private basket: BasketService){ }
@@ -147,14 +147,15 @@ export class ConstructorComponent {
       for(let j of elements){
         if (i.constructorImage == j.getAttribute('src')){
           document.getElementById('pizza').removeChild(j);
-          br
+          break;
         }
       }
     }
   }
 
   addToBasket(){
-
+    this.order.totalPrice = this.pizza.price[this.pizza.defaultSize];\
+    this.basket.add(this.order);
   }
 
   getCountOfItems(i){
