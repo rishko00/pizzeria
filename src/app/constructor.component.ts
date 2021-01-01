@@ -154,7 +154,7 @@ export class ConstructorComponent {
   }
 
   addToBasket(){
-    this.order.totalPrice = this.pizza.price[this.pizza.defaultSize];\
+    this.order.totalPrice = this.pizza.price[this.pizza.defaultSize];
     this.basket.add(this.order);
   }
 

@@ -55,7 +55,7 @@ class Order{
 export class PizzaComponent {
   pizza: Pizza[] = [];
   showPizza: Pizza = new Pizza('','',{},'', []);
-  order: Order = new Order(new Pizza('','',{},'', []), 0, 0);
+  order: Order = new Order(new Pizza('','',{},'', []), 0, 1);
   totalPrice: number;
   ingredients: Ingredient[] = [];
 
@@ -118,11 +118,8 @@ export class PizzaComponent {
   }
 
   deleteFromOrder(i){
-    
-    let c = this.order.item['ingrdients'].findIndex(el => el == i);
-    if (c == -1) return;
-
-    else{
+    if(this.getCountOfItems(i)){
+      let c = this.order.item['ingredients'].findIndex(el => el == i);
       this.order.item['ingredients'].splice(c, 1);
       this.order.totalPrice -= i.price;
     }
