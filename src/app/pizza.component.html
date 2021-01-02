@@ -22,26 +22,27 @@
         <tr *ngFor="let i of ingredients">
           <td> 
             <img class="ingrimage" src="{{i.image}}"/>
-            {{i.name}}{{i.price}}
-            <button (click)="addToOrder(i)">+</button>
-            <button (click)="deleteFromOrder(i)">-</button>
-            {{ getCountOfItems(i) }}
+            {{i.name}}
+            <button class="addingrbtn" (click)="addToOrder(i)">+</button>
+            <button class="addingrbtn" (click)="deleteFromOrder(i)">-</button>
+            <b class="ingrprice">   {{ getCountOfItems(i) }} x {{i.price}}</b>
           </td>
         </tr>
       </table>
     </div>
   <div class="pizzaitem">
       <ul>
-        <li>{{ showPizza.name }}</li>
-        <li>{{ showPizza.info | slice:0:54}}...</li>
+        <li class="name"><b>{{ showPizza.name }}</b></li>
+        <li class="info">{{ showPizza.info }}...</li>
         <li><img class="pizzaimage" src="{{ showPizza.image }}"/></li>
         <li>
-          <button (click)="setSize(showPizza, '22 cm')">22 cm</button>
-          <button (click)="setSize(showPizza, '30 cm')">30 cm</button>
-          <button (click)="setSize(showPizza, '36 cm')">36 cm</button>
+          <button id="{{p.name}} 22 cm" class="sizebtn" (click)="setSize(showPizza, '22 cm')">22 cm</button>
+          <button id="{{p.name}} 30 cm" class="sizebtn" (click)="setSize(showPizza, '30 cm')">30 cm</button>
+          <button id="{{p.name}} 36 cm" class="sizebtn" (click)="setSize(showPizza, '36 cm')">36 cm</button>
         </li>
-        <li>{{ order.totalPrice }} грн</li>
-        <li><button (click)="addPizzaToBasket()">Додати в корзину</button></li>
+        <li class="price">{{ order.totalPrice }} грн
+          <button class="basketbtn" (click)="addPizzaToBasket()">В кошик</button>
+        </li>
       </ul>
   </div>
   </div>
