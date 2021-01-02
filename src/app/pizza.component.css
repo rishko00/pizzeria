@@ -5,6 +5,7 @@
 .pizza{
     left: 5%;
     text-align: left;
+    border-radius: 5%; 
     border-bottom: 1px solid lightgray; 
     margin-top: 4px;
     display: inline-block;
@@ -14,7 +15,6 @@
 
 .pizza:hover{
     border: none; 
-    border-radius: 4px; 
     box-shadow: 0 0 10px rgba(0,0,0,0.5); 
     transform: translateY(-4px);
     transition: 500ms;
@@ -79,10 +79,17 @@ li{
   height: 40%;
 }
 
-.basket{
-  width: 10%;
-  height: 5%;
-  background-color: red;
+.basketbtn{
+  float: right;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #e30613;
+  border-radius: 20%;
+  color: #e30613;
+}
+
+.basketbtn:hover{
+  background-color: #e30613;
   color: white;
 }
 
@@ -92,11 +99,15 @@ li{
 
 .pizza ul li{
   font:14px arial;
-  margin-top: 4px;
+  margin-top: 20px;
 }
 
 .info{
   color: rgb(170, 170, 170);
+}
+
+.price{
+  vertical-align: middle;
 }
 
 .sizebtn{
@@ -120,4 +131,19 @@ li{
 
 .sizebtn:nth-child(3){
   border-radius: 0% 20% 20% 0%;
+}
+
+.add{
+  margin: 0 auto;
+  background-color: lightgray;
+  border-radius: inherit;
+}
+
+.add b{
+  text-align: m;
+}
+
+.add:hover{
+  color:#e30613;
+  cursor: pointer;
 }

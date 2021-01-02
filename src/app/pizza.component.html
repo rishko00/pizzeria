@@ -8,10 +8,11 @@
       <button id="{{p.name}} 30 cm" class="sizebtn" (click)="setSize(p, '30 cm')">30 cm</button>
       <button id="{{p.name}} 36 cm" class="sizebtn" (click)="setSize(p, '36 cm')">36 cm</button>
     </li>
-    <li class="price"><b>{{ p.price[p.defaultSize]}} грн</b></li>
-    <li><button (click)="addPizzaToBasket()">Додати в корзину</button></li>
-    <li><p class="add" (click)="showIngredients(p)">+ Додати інгредієнти</p></li>
+    <li class="price"><b>{{ p.price[p.defaultSize]}} грн</b>
+      <button class="basketbtn" (click)="addPizzaToBasket()">В кошик</button>
+    </li>
   </ul>
+  <div class="add" (click)="showIngredients(p)"><b>+ Додати інгредієнти</b></div>
 </div>
 
 <div id="ingr">

@@ -82,6 +82,9 @@ export class PizzaComponent {
   ngOnInit(){
     this.getPizza().subscribe((data) => this.pizza = data);
     this.getIngredients().subscribe((data) => this.ingredients = data);
+    for(let p of this.pizza){
+      this.setSize(p, '22 cm');
+    }
   }
 
   setSize(p: Pizza, size: string){
