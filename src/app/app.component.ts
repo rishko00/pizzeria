@@ -9,7 +9,7 @@ import { BasketService } from './basket.service';
 })
 
 export class AppComponent {
-  countOfItems: number = this.basket.countOfOrders;
+  countOfItems: number = this.basket.getLength();
   constructor(private basket: BasketService){
    }
 }

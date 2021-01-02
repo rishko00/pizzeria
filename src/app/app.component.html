@@ -18,7 +18,7 @@
     <a href="#">Картопля</a>
     <a href="#">Напої</a>
     <a href="#">Соуси</a>
-    <a class="basket" routerLink="basket">Кошик | {{ countOfItems }}</a>
+    <a class="basket" routerLink="basket">Кошик | {{ basket.getLength() }}</a>
   </nav>
 </div>
 <router-outlet></router-outlet>

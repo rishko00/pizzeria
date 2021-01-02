@@ -44,7 +44,7 @@ export class BasketService{
   countOfOrders: number = JSON.parse(localStorage.getItem('Order')).length;
 
   getLength(){
-    return this.c;
+    return this.countOfOrders;
   }
 
   add(order: Order){
