@@ -36,12 +36,12 @@
         <li class="info">{{ showPizza.info }}...</li>
         <li><img class="pizzaimage" src="{{ showPizza.image }}"/></li>
         <li>
-          <button id="{{p.name}} 22 cm" class="sizebtn" (click)="setSize(showPizza, '22 cm')">22 cm</button>
-          <button id="{{p.name}} 30 cm" class="sizebtn" (click)="setSize(showPizza, '30 cm')">30 cm</button>
-          <button id="{{p.name}} 36 cm" class="sizebtn" (click)="setSize(showPizza, '36 cm')">36 cm</button>
+          <button id="{{showPizza.name}} 22 cm" class="sizebtn" (click)="setSize(showPizza, '22 cm')">22 cm</button>
+          <button id="{{showPizza.name}} 30 cm" class="sizebtn" (click)="setSize(showPizza, '30 cm')">30 cm</button>
+          <button id="{{showPizza.name}} 36 cm" class="sizebtn" (click)="setSize(showPizza, '36 cm')">36 cm</button>
         </li>
         <li class="price">{{ order.totalPrice }} грн
-          <button class="basketbtn" (click)="addPizzaToBasket()">В кошик</button>
+          <div class="basketbtn" (click)="addPizzaToBasket()">В кошик</div>
         </li>
       </ul>
   </div>

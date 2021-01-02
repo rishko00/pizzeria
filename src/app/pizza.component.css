@@ -78,9 +78,10 @@ td > *{
   position: absolute;
   right:0;
   top:0;
+  width: 0%;
 }
 
-.ingrblock .ingrimage{
+.ingrimage{
   width: 15%;
   height: 40%;
 }
