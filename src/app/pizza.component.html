@@ -1,14 +1,14 @@
 <div class="pizza" *ngFor="let p of pizza">
   <ul>
     <li><img class="pizzaimage" src="{{ p.image }}"/></li>
-    <li>{{ p.name }}</li>
-    <li>{{ p.info | slice:0:54}}...</li>
+    <li class="name"><b>{{ p.name }}</b></li>
+    <li class="info">{{ p.info | slice:0:54}}...</li>
     <li>
-      <button (click)="setSize(p, '22 cm')">22 cm</button>
-      <button (click)="setSize(p, '30 cm')">30 cm</button>
-      <button (click)="setSize(p, '36 cm')">36 cm</button>
+      <button id="{{p.name}} 22 cm" class="sizebtn" (click)="setSize(p, '22 cm')">22 cm</button>
+      <button id="{{p.name}} 30 cm" class="sizebtn" (click)="setSize(p, '30 cm')">30 cm</button>
+      <button id="{{p.name}} 36 cm" class="sizebtn" (click)="setSize(p, '36 cm')">36 cm</button>
     </li>
-    <li>{{ p.price[p.defaultSize]}} грн</li>
+    <li class="price"><b>{{ p.price[p.defaultSize]}} грн</b></li>
     <li><button (click)="addPizzaToBasket()">Додати в корзину</button></li>
     <li><p class="add" (click)="showIngredients(p)">+ Додати інгредієнти</p></li>
   </ul>

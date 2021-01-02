@@ -93,6 +93,10 @@ export class PizzaComponent {
     this.order.totalPrice = p.price[p.defaultSize];
     this.order.item = p;
     this.order.item['ingredients'] = [];
+    document.getElementById(p.name + ' ' + size).classList.add('sizebtnchecked');
+    for(let i in p.price){
+      if(i != size) document.getElementById(p.name + ' ' + i).classList.remove('sizebtnchecked');
+    }
   }
 
   showIngredients(p: Pizza){

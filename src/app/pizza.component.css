@@ -4,6 +4,7 @@
 
 .pizza{
     left: 5%;
+    text-align: left;
     border-bottom: 1px solid lightgray; 
     margin-top: 4px;
     display: inline-block;
@@ -22,11 +23,14 @@
 .pizzaimage{
     width: 250px;
     height: 200px;
+    display: block;
+    margin: 0 auto;
 }
 
 .pizza ul{
-  float: left;
-  width: 100%;
+  display: inline-block;
+  padding: 0;
+  margin-left: 10px;
 }
 
 li{
@@ -80,4 +84,40 @@ li{
   height: 5%;
   background-color: red;
   color: white;
+}
+
+.name, .price{
+  font: 16px arial;
+}
+
+.pizza ul li{
+  font:14px arial;
+  margin-top: 4px;
+}
+
+.info{
+  color: rgb(170, 170, 170);
+}
+
+.sizebtn{
+  width: 33%;
+  border: none;
+}
+
+.sizebtnchecked{
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+  outline: none;
+}
+
+.sizebtn:nth-child(1){
+  border-radius: 20% 0% 0% 20%;
+}
+
+.sizebtn:nth-child(2){
+  border-radius:0%;
+}
+
+.sizebtn:nth-child(3){
+  border-radius: 0% 20% 20% 0%;
 }
