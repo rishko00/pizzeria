@@ -87,6 +87,9 @@ class Order{
     <button (click)="toOrder()">OK</button>
   `,
   styles: [`
+  *{
+   background-color: lightgray;
+ }
   img{
     width: 200px;
     height: 200px;
@@ -113,7 +116,7 @@ export class BasketComponent {
   toOrder() {
     let order = new ToOrder(this.basketItems, this.user, this.address, this.phoneNumber, this.date);
 
-    this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', o) .subscribe(
+    this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', ord) .subscribe(
         (val) => {
             console.log("POST call successful value returned in body", 
                         val);
