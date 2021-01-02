@@ -41,7 +41,11 @@ class Order{
 }
 
 export class BasketService{
-  countOfOrders: number;
+  countOfOrders: number = JSON.parse(localStorage.getItem('Order')).length;
+
+  getLength(){
+    return this.c;
+  }
 
   add(order: Order){
     let obj = new Array();

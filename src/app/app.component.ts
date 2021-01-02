@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BasketService } from './basket.service';
 
 
 @Component({
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  
+  countOfItems: number = this.basket.countOfOrders;
+  constructor(private basket: BasketService){
+   }
 }

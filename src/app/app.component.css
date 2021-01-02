@@ -1,3 +1,8 @@
+.header{
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
 img{
   width: 60px;
   height: 60px;
@@ -22,6 +27,25 @@ a:focus{
 nav{
   margin-left: 5%;
   margin-right: 5%;
+  height: 50px;
+}
+
+nav a{
+  display: inline-block;
+  vertical-align: bottom;
+  font: 16px arial;
+  font-weight: bold;
+  margin: 10px;
+}
+
+nav .basket{
+  width: 100px;
+  height: 50%;
+  border-radius: 10%;
+  text-decoration: none;
+  float:right;
+  background-color: #e30613;
+  color: white;
 }
 
 .head{
