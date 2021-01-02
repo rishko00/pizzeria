@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppR
+    AppRoutingModule
   ],
   providers: [BasketService],
   
