@@ -47,3 +47,18 @@
 #addbutton{
   visibility: hidden;
 }
+
+.basebtn{
+  width: 12%;
+  height: 6%;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  outline: none;
+  background-color: white;
+  margin: 10px;
+}
+
+.basebtnchecked{
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+}

@@ -1,7 +1,7 @@
 <div *ngFor="let b of pizzaBase">
-  <button (click)="addItem(b, '22 cm')">{{ b.name }} 22 cm</button>
-  <button (click)="addItem(b, '30 cm')">{{ b.name }} 30 cm</button>
-  <button (click)="addItem(b, '36 cm')">{{ b.name }} 36 cm</button>
+  <button class="basebtn" id="{{b.name}} 22 cm" (click)="addItem(b, '22 cm')">{{ b.name }} 22 cm</button>
+  <button class="basebtn" id="{{b.name}} 30 cm" (click)="addItem(b, '30 cm')">{{ b.name }} 30 cm</button>
+  <button class="basebtn" id="{{b.name}} 36 cm" (click)="addItem(b, '36 cm')">{{ b.name }} 36 cm</button>
 </div>
 <button id="addbutton" (click)="addToBasket()"> Add to basket</button> {{ pizza.price[pizza.defaultSize]}}
 <div class="constructor">
