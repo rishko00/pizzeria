@@ -71,14 +71,14 @@ td > *{
 
 .ingredients{
    overflow-y:scroll;
-   width: 50%;
+   width: 60%;
 }
 
 .pizzaitem{
   position: absolute;
   right:0;
   top:0;
-  width: 0%;
+  width: 40%;
 }
 
 .ingrimage{
