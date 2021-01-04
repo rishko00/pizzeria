@@ -6,13 +6,19 @@
 <button id="addbutton" (click)="addToBasket()"> Add to basket</button> {{ pizza.price[pizza.defaultSize]}}
 <div class="constructor">
 <div class="ingr">
-  <div class="ingrdients"  *ngFor="let i of ingredients">
-      <img class="ingrimage" src="{{i.image}}"/>
-        {{i.name}}
-        <button (click)="addItem(i)">+</button>
-        <button (click)="deleteItem(i)">-</button>
-        {{ getCountOfItems(i) }}        
-  </div>
+  <div class="ingredients">
+      <table>
+        <tr *ngFor="let i of ingredients">
+          <td> 
+            <img class="ingrimage" src="{{i.image}}"/>
+            {{i.name}}
+            <button class="addingrbtn" (click)="addToOrder(i)">+</button>
+            <button class="addingrbtn" (click)="deleteFromOrder(i)">-</button>
+            <b class="ingrprice">   {{ getCountOfItems(i) }} x {{i.price}}</b>
+          </td>
+        </tr>
+      </table>
+    </div>
 </div>
 
   <div id="pizza" class="pizza">

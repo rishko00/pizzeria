@@ -84,29 +84,13 @@ td > *{
 .ingrimage{
   width: 15%;
   height: 40%;
-}
-
-.ingrimage{
   border: 1px solid lightgray;
   border-radius: 50%;
 }
 
+
 .ingrprice{
   color: #e30613;
-}
-
-.basketbtn{
-  float: right;
-  height: 40px;
-  background-color: white;
-  border: 1px solid #e30613;
-  border-radius: 20%;
-  color: #e30613;
-}
-
-.basketbtn:hover{
-  background-color: #e30613;
-  color: white;
 }
 
 .name, .price{
