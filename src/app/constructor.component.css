@@ -94,6 +94,21 @@ td > *{
   border-radius: 50%;
 }
 
-.baseblock{
-  display: inline-block;
+.priceblock{
+  text-align: center;
+  font-size: 24px;
+}
+
+.addbtn{
+  border-radius: 8px;
+  border: 1px solid #e30613;
+  color: #e30613;
+  background-color: white;
+  height: 32px;
+  font-size: 24px;
+}
+
+.addbtn:hover{
+  background-color: #e30613;
+  color: white;
 }

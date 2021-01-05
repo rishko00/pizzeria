@@ -106,6 +106,7 @@ export class ConstructorComponent {
       this.pizza.price[this.pizza.defaultSize] = i.price[size];
       this.pizza.ingredients = [];
       document.getElementById('addbutton').style.visibility = 'visible';
+      document.getElementById('price').hidden = false;
       for (let j of document.getElementsByClassName('basebtn')){
         j.classList.remove('basebtnchecked');
       }
