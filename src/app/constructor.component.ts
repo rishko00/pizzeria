@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
@@ -74,7 +74,7 @@ export class ConstructorComponent {
   order: Order = new Order(this.pizza, 0, 1);
   z: number = 0;
 
-  constructor(private http: HttpClient, private basket: BasketService){ }
+  constructor(private http: HttpClient, private basket: BasketService, private renderer: Renderer2){ }
   
   getIngredients(): Observable<Ingredient[]> {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
@@ -126,16 +126,15 @@ export class ConstructorComponent {
         else{
           this.pizza.ingredients.push(i);
           this.pizza.price[this.pizza.defaultSize] += Number(i.price);
-          this.z++;
-          let elem = document.getElementById('pizza');
-          let addelem = document.createElement('img');
-          addelem.src = i['constructorImage'];
-          addelem.className = 'pizzaimage';
-          //addelem.style.zIndex = String(this.z);
-          elem.appendChild(addelem);
         }
       }
     }
+
+    let elem = document.getElementById('pizza');
+    let addelem = this.renderer.createElement('img');
+    this.renderer.addClass(addelem, 'pizzaimage');
+    this.renderer.setAttribute(addelem, 'src', i.constructorImage);
+    this.renderer.appendChild(elem, addelem);
   }
 
   deleteItem(i){

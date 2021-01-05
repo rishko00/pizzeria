@@ -156,3 +156,17 @@ td > *{
   border: 1px solid lightgray;
   border-radius: 50%;
 }
+
+.basketbtn{
+  border-radius: 8px;
+  border: 1px solid #e30613;
+  color: #e30613;
+  background-color: white;
+  height: 24px;
+  float: right;
+}
+
+.basketbtn:hover{
+  background-color: #e30613;
+  color: white;
+}
