@@ -1,13 +1,32 @@
 .ingr{
   width: 50%;
   float: left;
-  border: 2px solid black;
-  border-radius: 5%;
+  border: 1px solid lightgray;
+  border-radius: 8px;
   overflow-y: scroll;
-  height: 100%;
-  left: 0;
+  height: 90%;
+  left: 5px;
   position: absolute;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e30613;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94050e;
+}
+
 
 .constructor{
   width: 100%;
@@ -17,8 +36,8 @@
 .pizzaimage{
   top: 50%;
   right: 12.5%;
-  width: 350px;
-  height: 400px;
+  width: 450px;
+  height: 500px;
   position: absolute;
   z-index: 0;
 }
@@ -28,9 +47,6 @@
   height: 10%;
 }
 
-.items{
-  bottom: 0;
-}
 
 #addbutton{
   visibility: hidden;
@@ -43,7 +59,7 @@
   border-radius: 8px;
   outline: none;
   background-color: white;
-  margin: 10px;
+  margin: 0.5%;
 }
 
 .basebtnchecked{
@@ -76,4 +92,8 @@ td > *{
   cursor: pointer;
   border: 1px solid lightgray;
   border-radius: 50%;
+}
+
+.baseblock{
+  display: inline-block;
 }

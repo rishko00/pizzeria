@@ -130,11 +130,13 @@ export class ConstructorComponent {
       }
     }
 
-    let elem = document.getElementById('pizza');
-    let addelem = this.renderer.createElement('img');
-    this.renderer.addClass(addelem, 'pizzaimage');
-    this.renderer.setAttribute(addelem, 'src', i.constructorImage);
-    this.renderer.appendChild(elem, addelem);
+    if(i.constructorImage){
+      let elem = document.getElementById('pizza');
+      let addelem = this.renderer.createElement('img');
+      this.renderer.addClass(addelem, 'pizzaimage');
+      this.renderer.setAttribute(addelem, 'src', i.constructorImage);
+      this.renderer.appendChild(elem, addelem);
+    }
   }
 
   deleteItem(i){
