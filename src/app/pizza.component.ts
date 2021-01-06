@@ -109,6 +109,13 @@ export class PizzaComponent {
     document.getElementById('ingr').style.display = 'block';
   }
 
+  hideIngredients(event){
+    if(event.target.classList){
+      console.log(typeof event.target.classList);
+      document.getElementById('ingr').style.display = 'none';
+    }
+  }
+
   addToOrder(i){
     if(i.price instanceof Object){
       this.order.item = i;

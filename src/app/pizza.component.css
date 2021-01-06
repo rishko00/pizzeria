@@ -3,6 +3,26 @@
   font: 14px arial;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e30613;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94050e;
+}
+
+
+
 .pizza{
     left: 5%;
     margin-right: 2.5%;
@@ -70,15 +90,19 @@ td > *{
 }
 
 .ingredients{
-   overflow-y:scroll;
+   overflow-y: scroll;
    width: 60%;
 }
 
 .pizzaitem{
   position: absolute;
-  right:0;
+  right:2%;
   top:0;
   width: 40%;
+}
+
+.pizzaitem ul > li{
+  margin-top: 5%;
 }
 
 .ingrimage{
