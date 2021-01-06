@@ -1,0 +1,14 @@
+<div class="basketitem" *ngFor="let i of basketItems">
+  <img src="{{ i.item.image }}">
+  <ul>
+    <li class="name"><b>{{ i.item.name }}</b></li>
+    <li class="info">{{ i.item.info }}</li>
+    <li *ngIf="i.item.ingredients.length > 0">Додаткові інгредієнти: <span *ngFor="let j of i.item.ingredients"> {{ j.name }}</span></li>
+  </ul>
+  {{ i.totalPrice }}</div>
+  <div>Сума замовлення: {{getTotalPrice()}}</div>
+  
+    User: <input [(ngModel)]="user">
+    Address: <input [(ngModel)]="address">
+    Number: <input [(ngModel)]="phoneNumber">
+    <button (click)="toOrder()">OK</button>

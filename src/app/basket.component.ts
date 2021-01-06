@@ -73,24 +73,8 @@ class Order{
 
 @Component({
   selector: 'basket',
-  template: `
-  <div *ngFor="let i of basketItems"><img src="{{ i.item.image }}"> <span>
-  {{ i.item.name }}<br>
-  {{ i.item.info }}<br>
-  <span *ngFor="let j of i.item.ingredients"> {{ j.name }}</span><br>
-  {{ i.totalPrice }}<br></span></div>
-  <div>Сума замовлення: {{getTotalPrice()}}</div>
-  
-    User: <input [(ngModel)]="user">
-    Address: <input [(ngModel)]="address">
-    Number: <input [(ngModel)]="phoneNumber">
-    <button (click)="toOrder()">OK</button>
-  `,
-  styles: [`
-  img{
-    width: 200px;
-    height: 200px;
-  }`]
+  templateUrl: './basket.component.html',
+  styleUrls: ['./basket.component.css']
 })
 
 export class BasketComponent {

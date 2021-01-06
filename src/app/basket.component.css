@@ -1,0 +1,27 @@
+img{
+  width: 250px;
+  height: 200px;
+}
+
+ul{
+  display: inline-block;
+  list-style-type: none;
+}
+
+.name{
+  font: 18px arial;
+}
+
+.info{
+  font: 14px arial;
+  color: gray;
+}
+
+.basketitem{
+  height: 200px;
+  margin-bottom: 2%;
+}
+
+.basketitem:nth-child(even){
+  background-color: #edf5ef;
+}

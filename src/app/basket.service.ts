@@ -28,6 +28,7 @@ class Ingredient{
   }
 }
 
+
 class Order{
   item: Pizza;
   totalPrice: number;
@@ -39,6 +40,7 @@ class Order{
     this.count = count;
   }
 }
+
 
 export class BasketService{
   countOfOrders: number = JSON.parse(localStorage.getItem('Order')).length;
@@ -61,13 +63,13 @@ export class BasketService{
         if (i.item['ingredients']) i.item['ingredients'].sort();
         if(JSON.stringify(i.item) == JSON.stringify(order.item)){
           i.count++;
-          localStorage.setItem(`Order`, JSON.stringify(data));
+          localStorage.setItem('Order', JSON.stringify(data));
           return;
         }
       }
 
       data.push(order);
-      localStorage.setItem(`Order`, JSON.stringify(data));
+      localStorage.setItem('Order', JSON.stringify(data));
       this.countOfOrders++;
     } 
   }
