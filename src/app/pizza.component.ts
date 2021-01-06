@@ -110,8 +110,7 @@ export class PizzaComponent {
   }
 
   hideIngredients(event){
-    if(event.target.classList){
-      console.log(typeof event.target.classList);
+    if(event.target.id == 'ingr' || event.target.id == 'basketbtn'){
       document.getElementById('ingr').style.display = 'none';
     }
   }

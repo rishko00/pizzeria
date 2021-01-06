@@ -47,9 +47,24 @@
   height: 10%;
 }
 
-
-#addbutton{
+.addbtn{
   visibility: hidden;
+  border-radius: 8px;
+  border: 1px solid #e30613;
+  color: #e30613;
+  background-color: white;
+  height: 32px;
+  font-size: 24px;
+  outline: none;
+}
+
+.addbtn:hover{
+  background-color: #e30613;
+  color: white;
+}
+
+.addbtn:active{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 
 .basebtn{
@@ -99,16 +114,3 @@ td > *{
   font-size: 24px;
 }
 
-.addbtn{
-  border-radius: 8px;
-  border: 1px solid #e30613;
-  color: #e30613;
-  background-color: white;
-  height: 32px;
-  font-size: 24px;
-}
-
-.addbtn:hover{
-  background-color: #e30613;
-  color: white;
-}
