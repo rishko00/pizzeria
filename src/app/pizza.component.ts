@@ -13,12 +13,13 @@ class Pizza{
   defaultSize: string;
   ingredients: Ingredient[];
 
-  constructor(name, info, price, image, ingredients){
+  constructor(name, info, price, image, ingredients, defaultSize){
     this.name = name;
     this.info = info;
     this.image = image;
     this.price = price;
     this.ingredients = ingredients;
+    this.defaultSize = defaultSize;
   }
 }
 
@@ -54,8 +55,8 @@ class Order{
 
 export class PizzaComponent {
   pizza: Pizza[] = [];
-  showPizza: Pizza = new Pizza('','',{},'', []);
-  order: Order = new Order(new Pizza('','',{},'', []), 0, 1);
+  showPizza: Pizza = new Pizza('','',{},'', [], '22 cm');
+  order: Order = new Order(new Pizza('','',{},'', [], '22 cm'), 0, 1);
   totalPrice: number;
   ingredients: Ingredient[] = [];
 

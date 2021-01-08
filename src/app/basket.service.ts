@@ -43,7 +43,7 @@ class Order{
 
 
 export class BasketService{
-  countOfOrders: number = JSON.parse(localStorage.getItem('Order')).length;
+  countOfOrders: number = JSON.parse(localStorage.getItem('Order')) ? JSON.parse(localStorage.getItem('Order')).length : 0;
 
   getLength(){
     return this.countOfOrders;

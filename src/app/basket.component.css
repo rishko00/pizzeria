@@ -4,8 +4,11 @@ img{
 }
 
 ul{
-  display: inline-block;
   list-style-type: none;
+  margin-left: 260px;
+}
+
+li{
 }
 
 .name{
@@ -19,7 +22,6 @@ ul{
 
 .basketitem{
   height: 200px;
-  margin-bottom: 2%;
 }
 
 .basketitem:nth-child(even){
