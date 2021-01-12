@@ -45,6 +45,7 @@ class Order{
 export class BasketService{
   countOfOrders: number = JSON.parse(localStorage.getItem('Order')) ? JSON.parse(localStorage.getItem('Order')).length : 0;
 
+
   getLength(){
     return this.countOfOrders;
   }
@@ -74,17 +75,31 @@ export class BasketService{
     } 
   }
 
+  delete(order: Order){
+    let arr = this.getItems();
+    for(let i of arr){
+      if(JSON.stringify(i) == JSON.stringify(order)){
+        let c = arr.findIndex(el => el == i);
+        arr.splice(c, 1);
+        break;
+      }
+    }
+    localStorage.setItem('Order', JSON.stringify(arr));
+  }
+
   getItems(){
     return JSON.parse(localStorage.getItem('Order'));
   }
 
   incOrder(o: Order, act: string){
-    for(let i of this.getItems()){
-      if(i == o){
+    let arr = this.getItems();
+    for(let i of arr){
+      if(JSON.stringify(i) == JSON.stringify(o)){
         if(act == '+') i.count++;
         if(act == '-' && i.count > 1) i.count--;
         break; 
       }
     }
+    localStorage.setItem('Order', JSON.stringify(arr));
   }
 }

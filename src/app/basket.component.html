@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="basketitem" *ngFor="let i of basketItems">
+  <div class="basketitem" *ngFor="let i of basket.getItems">
     <img src="{{ i.item.image }}">
     <ul>
       <li class="name"><b>{{ i.item.name }}</b></li>
@@ -8,9 +8,10 @@
     </ul>
     
     <div>
-      <button>+</button>
+      <button (click)="incrOrder(i, '+')">+</button>
       <b> {{ i.count }} </b>
-      <button (click)="basket.incOrder(i, '-')">-</button>
+      <button (click)="incrOrder(i, '-')">-</button>
+      <button (click)="deleteOrder(i)"> del</button>
     </div>
     <div><b>{{ i.totalPrice }}</b></div>
   </div>

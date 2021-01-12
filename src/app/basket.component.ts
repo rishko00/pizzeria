@@ -110,4 +110,12 @@ export class BasketComponent {
         });
     console.log(JSON.stringify(order))
   }
+
+  deleteOrder(o: Order){
+    this.basket.delete(o);
+  }
+
+  incrOrder(o: Order, act: string){
+    this.basket.incOrder(o, act);
+  }
 }
