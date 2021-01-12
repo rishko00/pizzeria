@@ -107,7 +107,7 @@ export class PizzaComponent {
     this.showPizza = p;
     this.order.totalPrice = p.price[p.defaultSize];
     this.order.item = p;
-    document.getElementById('ingr').style.display = 'block';
+    document.getElementById('ingr').style.display = 'flex';
   }
 
   hideIngredients(event){

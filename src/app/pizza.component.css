@@ -60,6 +60,8 @@ li{
 #ingr{
   display: none;
   position: fixed;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -71,16 +73,10 @@ li{
 .ingrblock{
   position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 500px;
   height: 400px;
   background-color: white;
   border-radius: 10px;
-}
-
-td > *{
-  vertical-align: middle;
 }
 
 .ingredients, .pizzaitem{
@@ -90,8 +86,11 @@ td > *{
 
 .ingredients{
   overflow: scroll;
-  overflow-y: auto;
   flex-basis: 60%;
+}
+
+.ingredients ul{
+  left: 0;
 }
 
 .pizzaitem{
@@ -103,12 +102,11 @@ td > *{
 }
 
 .ingrimage{
-  width: 0px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
   border: 1px solid lightgray;
   border-radius: 50%;
 }
-
 
 .ingrprice{
   color: #e30613;
