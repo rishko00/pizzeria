@@ -1,5 +1,8 @@
-*{
-  position: relative;
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   font: 14px arial;
 }
 
@@ -21,18 +24,13 @@
     background: #94050e;
 }
 
-
-
 .pizza{
-    left: 5%;
-    margin-right: 2.5%;
-    text-align: left;
-    border-radius: 5%; 
-    border-bottom: 1px solid lightgray; 
-    margin-top: 4px;
-    display: inline-block;
-    width: 20%;
-    transform: -4px;
+  margin: 20px;
+  text-align: left;
+  border-radius: 5%; 
+  border-bottom: 1px solid lightgray; 
+  flex-basis: 20%;
+  transform: -4px;
 }
 
 .pizza:hover{

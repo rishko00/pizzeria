@@ -1,24 +1,22 @@
 <div class="header">
   <div class="head">
     <img src="https://i.pinimg.com/originals/32/17/8c/32178c188f1d6c7fc134b3ac29555757.jpg">
-    <table>
-      <tr>
-        <td class="number"><b>+38 (044) 000 00 00</b></td>
-      </tr>
-      <tr>
-        <td class="info">Цілодобова доставка</td>
-      </tr>
-    </table>
-    <a href="#" class="auth"> &#10154;</a>
+    <ul>
+        <li class="number"><b>+38 (044) 000 00 00</b></li>
+        <li class="info">Цілодобова доставка</li>
+    </ul>
+    <div class="auth"> &#10154;</div>
   </div>
   <nav>
-    <a id="pizzalink" routerLink="pizza">Піца</a>
-    <a routerLink="constructor">Конструктор піци</a>
-    <a href="#">Снеки</a>
-    <a href="#">Картопля</a>
-    <a href="#">Напої</a>
-    <a href="#">Соуси</a>
-    <a class="basket" routerLink="basket">Кошик | {{ basket.getLength() }}</a>
+    <div class="links">
+      <a id="pizzalink" routerLink="pizza">Піца</a>
+      <a routerLink="constructor">Конструктор піци</a>
+      <a href="#">Снеки</a>
+      <a href="#">Картопля</a>
+      <a href="#">Напої</a>
+      <a href="#">Соуси</a>
+    </div>
+    <div class="basket" routerLink="basket">Кошик | {{ basket.getLength() }}</div>
   </nav>
 </div>
 <router-outlet></router-outlet>
