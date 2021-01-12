@@ -77,4 +77,14 @@ export class BasketService{
   getItems(){
     return JSON.parse(localStorage.getItem('Order'));
   }
+
+  incOrder(o: Order, act: string){
+    for(let i of this.getItems()){
+      if(i == o){
+        if(act == '+') i.count++;
+        if(act == '-' && i.count > 1) i.count--;
+        break; 
+      }
+    }
+  }
 }
