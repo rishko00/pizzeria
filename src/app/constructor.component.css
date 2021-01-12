@@ -1,12 +1,23 @@
+.container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
 .ingr{
-  width: 50%;
-  float: left;
+  height: 450px;
+  min-width: 50%;
   border: 1px solid lightgray;
   border-radius: 8px;
+}
+
+.ingr > ul{
+  margin-top: 0;
+  margin-left: 0;
+  height: 100%;
   overflow-y: scroll;
-  height: 90%;
-  left: 5px;
-  position: absolute;
 }
 
 ::-webkit-scrollbar {
@@ -27,24 +38,32 @@
     background: #94050e;
 }
 
-
 .constructor{
   width: 100%;
-  height: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.pizza{
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .pizzaimage{
-  top: 50%;
-  right: 12.5%;
-  width: 450px;
-  height: 500px;
+  width: 350px;
+  height: 400px;
+  display: block;
+  order: 0;
   position: absolute;
   z-index: 0;
 }
 
 .ingrimage{
-  width: 10%;
-  height: 10%;
+  width: 50px;
+  height: 50px;
 }
 
 .addbtn{
@@ -68,13 +87,17 @@
 }
 
 .basebtn{
-  width: 12%;
-  height: 6%;
+  width: 20%;
+  height: 10%;
   border: 1px solid lightgray;
   border-radius: 8px;
   outline: none;
   background-color: white;
   margin: 0.5%;
+}
+
+.baseblock{
+  align-self: center;
 }
 
 .basebtnchecked{
@@ -83,8 +106,6 @@
 }
 
 .ingrimage{
-  width: 15%;
-  height: 40%;
   border: 1px solid lightgray;
   border-radius: 50%;
 }
@@ -93,8 +114,8 @@
   color: #e30613;
 }
 
-td > *{
-  vertical-align: middle;
+ul{
+  list-style-type: none;
 }
 
 .name, .price{

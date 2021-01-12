@@ -1,31 +1,30 @@
-<div class="priceblock">
-    <b id="price" hidden>Загальна сума: {{ pizza.price[pizza.defaultSize] }} грн </b>
-    <button id="addbutton" class="addbtn" (click)="addToBasket()">В кошик</button>
-</div>
-
-<div class="baseblock" *ngFor="let b of pizzaBase">
-  <button class="basebtn" id="{{b.name}} 22 cm" (click)="addItem(b, '22 cm')">{{ b.name }} 22 cm</button>
-  <button class="basebtn" id="{{b.name}} 30 cm" (click)="addItem(b, '30 cm')">{{ b.name }} 30 cm</button>
-  <button class="basebtn" id="{{b.name}} 36 cm" (click)="addItem(b, '36 cm')">{{ b.name }} 36 cm</button>
-</div>
+<div class="container">
+  <div class="baseblock" *ngFor="let b of pizzaBase">
+    <button class="basebtn" id="{{b.name}} 22 cm" (click)="addItem(b, '22 cm')">{{ b.name }} 22 cm</button>
+    <button class="basebtn" id="{{b.name}} 30 cm" (click)="addItem(b, '30 cm')">{{ b.name }} 30 cm</button>
+    <button class="basebtn" id="{{b.name}} 36 cm" (click)="addItem(b, '36 cm')">{{ b.name }} 36 cm</button>
+  </div>
 
 
-<div class="constructor">
-  <div class="ingr">
-    <div class="ingredients">
-        <table>
-          <tr *ngFor="let i of ingredients">
-            <td> 
+  <div class="constructor">
+    <div class="ingr">
+        <ul>
+          <li *ngFor="let i of ingredients">
               <img class="ingrimage" src="{{i.image}}"/>
               {{i.name}}
               <button class="addingrbtn" (click)="addItem(i)">+</button>
               <button class="addingrbtn" (click)="deleteItem(i)">-</button>
               <b class="ingrprice">   {{ getCountOfItems(i) }} x {{i.price}}</b>
-            </td>
-          </tr>
-        </table>
+          </li>
+        </ul>
+    </div>
+    <div id="pizza">
+      <div class="priceblock" id="priceblock">
+        <b id="price" hidden>Загальна сума: {{ pizza.price[pizza.defaultSize] }} грн </b>
+        <button id="addbutton" class="addbtn" (click)="addToBasket()">В кошик</button>
       </div>
+    </div>
   </div>
 
-  <div id="pizza"></div>
+  
 </div>
