@@ -95,8 +95,12 @@ export class BasketService{
     let arr = this.getItems();
     for(let i of arr){
       if(JSON.stringify(i) == JSON.stringify(o)){
-        if(act == '+') i.count++;
-        if(act == '-' && i.count > 1) i.count--;
+        if(act == '+') {
+          i.count++;
+        }
+        if(act == '-' && i.count > 1) {
+          i.count--;
+        }
         break; 
       }
     }
