@@ -80,7 +80,7 @@ class ToOrder{
   <div>
     {{ orders }}
   </div>
-  <button (click)="auth.logout()">exit</bu
+  <button (click)="auth.logout()">exit</button>
   `,
   styles: ['./app.component.css']
 })

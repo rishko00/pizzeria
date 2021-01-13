@@ -5,6 +5,7 @@ import { BasketComponent } from './basket.component';
 import { ConstructorComponent } from './constructor.component';
 import { AuthComponent } from './auth-admin.component';
 import { AdminComponent } from './admin.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
     { path: '', component: PizzaComponent},
@@ -12,11 +13,12 @@ const routes: Routes = [
     { path: 'basket', component: BasketComponent},
     { path: 'constructor', component: ConstructorComponent},
     { path: 'auth', component: AuthComponent },
-    { path: 'list', component: AdminComponent} 
+    { path: 'list', component: AdminComponent, canActivate: [AdminGuard]} 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AdminGuard]
 })
 export class AppRoutingModule { }

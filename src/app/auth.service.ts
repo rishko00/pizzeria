@@ -9,7 +9,7 @@ import { Injectable } from  '@angular/core';
 
 export class AuthService{
   user: firebase.User;
-  constructor(public  afAuth:  AngularFireAuth, public  router:  Router) {
+  constructor(public  afAuth:  AngularFireAuth, public router: Router) {
     this.afAuth.authState.subscribe(user => {
       if (user){
         this.user = user;
@@ -29,11 +29,11 @@ export class AuthService{
   async logout(){
     await this.afAuth.signOut();
     localStorage.removeItem('user');
-    this.router.navigate(['admin/login']);
+    this.router.navigate(['aut']);
   }
 
   get isLoggedIn(): boolean {
-    const  user = JSON.parse(localStorage.getItem('user'));
-    return  user !== null;
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null;
   }
 }
