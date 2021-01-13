@@ -1,7 +1,12 @@
 import { Router } from  "@angular/router";
 import { auth } from  'firebase/app';
 import { AngularFireAuth } from  "@angular/fire/auth";
-import { User } from  'firebase';
+import { User }  from  'firebase/app';
+import { Injectable } from  '@angular/core';
+
+@Injectable({
+    providedIn:  'root'
+})
 
 export class AuthService{
   user:  User;
