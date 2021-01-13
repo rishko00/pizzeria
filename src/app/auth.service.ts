@@ -1,7 +1,6 @@
 import { Router } from  "@angular/router";
-import { auth } from  'firebase/app';
 import { AngularFireAuth } from  "@angular/fire/auth";
-import { User }  from  'firebase/app';
+import firebase from  'firebase/app';
 import { Injectable } from  '@angular/core';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { Injectable } from  '@angular/core';
 })
 
 export class AuthService{
-  user:  User;
+  user: firebase.User;
   constructor(public  afAuth:  AngularFireAuth, public  router:  Router) {
     this.afAuth.authState.subscribe(user => {
       if (user){
@@ -23,12 +22,12 @@ export class AuthService{
   }
 
   async login(email: string, password: string) {
-    var result = await this.afAuth.auth.signInWithEmailAndPassword(email, password)
-    this.router.navigate(['admin/list']);
+    let result = await this.afAuth.signInWithEmailAndPassword(email, password)
+    this.router.navigate(['list']);
   }
 
   async logout(){
-    await this.afAuth.auth.signOut();
+    await this.afAuth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['admin/login']);
   }
@@ -36,5 +35,5 @@ export class AuthService{
   get isLoggedIn(): boolean {
     const  user = JSON.parse(localStorage.getItem('user'));
     return  user !== null;
-}
+  }
 }

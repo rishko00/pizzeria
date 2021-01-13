@@ -10,6 +10,8 @@ import { BasketService } from './basket.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AuthComponent } from './auth-admin.component';
+import { AdminComponent } from './admin.component';
 
 let firebaseConfig = {
   apiKey: "AIzaSyDYEr4fNYYIDy-XNIk8g4Uht-WVJtmFPkE",
@@ -23,14 +25,14 @@ let firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent,AngularFireModule,
-    AngularFireAuthModule
+    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [BasketService],
