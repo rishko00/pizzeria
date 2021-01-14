@@ -23,7 +23,7 @@ abstract class ProductWithChoise{
     this.prices = prices;
     this.size = Object.keys(prices)[0];
     this.price = prices[this.size];
-  }
+  };
 
   setSize(size: string){
     this.size = size;
@@ -31,7 +31,7 @@ abstract class ProductWithChoise{
   };
 }
 
-class Ingredient extends Product{
+export class Ingredient extends Product{
   constructorImage: string;
   count: number;
 
@@ -54,17 +54,26 @@ class Ingredient extends Product{
   }
 }
 
-class Pizza extends ProductWithChoise{
+export class Pizza extends ProductWithChoise{
   ingredients: Ingredient[];
 
   constructor(name, image, prices){
     super(name, image, prices);
     this.ingredients = [];
+  };
+
+  setSize(size: string){
+    this.size = size;
+    this.price = this.prices[size];
+  };
+
+  gop(){
+    console.log('dddd')
   }
 }
 
 
-class BasketItem{
+export class BasketItem{
   item: Pizza;
   totalPrice: number;
   count: number;
@@ -76,7 +85,7 @@ class BasketItem{
   }
 }
 
-class Order{
+export class Order{
   items: BasketItem[];
   totalPrice: number;
   user: string;

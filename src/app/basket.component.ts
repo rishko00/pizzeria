@@ -101,7 +101,7 @@ export class BasketComponent {
   }
 
   toOrder() {
-    let order = new ToOrder(this.basketItems, this.user, this.address, this.phoneNumber, new Date);
+    let order = new ToOrder(this.basketItems, this.user, this.address, this.phoneNumber, new Date());
 
     this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', order) .subscribe(
         (val) => {
