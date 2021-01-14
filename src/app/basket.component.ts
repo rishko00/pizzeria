@@ -83,7 +83,6 @@ export class BasketComponent {
   user: string;
   address: string;
   phoneNumber: string;
-  date: Date = new Date();
 
   constructor(private basket: BasketService, private http: HttpClient){
     this.myForm = new FormGroup({
@@ -102,7 +101,7 @@ export class BasketComponent {
   }
 
   toOrder() {
-    let order = new ToOrder(this.basketItems, this.user, this.address, this.phoneNumber, this.date);
+    let order = new ToOrder(this.basketItems, this.user, this.address, this.phoneNumber, new Date);
 
     this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', order) .subscribe(
         (val) => {
