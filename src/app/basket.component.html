@@ -1,20 +1,21 @@
 <div class="container">
   <div class="basketitem" *ngFor="let i of basket.getItems()">
     <img src="{{ i.item.image }}">
-    <ul>
+    <ul class="pizzainfo">
       <li class="name"><b>{{ i.item.name }}</b></li>
       <li class="info">{{ i.item.info }}</li>
       <li *ngIf="i.item.ingredients.length > 0">Додаткові інгредієнти: <span *ngFor="let j of i.item.ingredients | slice:0:i.item.ingredients.length - 1"> {{ j.name }}, </span> {{ i.item.ingredients[i.item.ingredients.length - 1].name}}. </li>
     </ul>
     
     <div>
-      <button (click)="incrOrder(i, '+')">+</button>
+      <button class="addbtn" (click)="incrOrder(i, '+')">+</button>
       <b> {{ i.count }} </b>
-      <button (click)="incrOrder(i, '-')">-</button>
-      <button (click)="deleteOrder(i)"> del</button>
+      <button class="addbtn" (click)="incrOrder(i, '-')">-</button>
     </div>
-    <div><b>{{ i.totalPrice }}</b></div>
+    <div><b>{{ i.totalPrice }} грн</b></div>
+    <div><button class="deletebtn" (click)="deleteOrder(i)"> &#10006;</button></div>
   </div>
+  <div><button class="orderbtn" (click)="toOrder()">Оформити замовлення</button></div>
 </div>
 <!-- 
   <div>Сума замовлення: {{getTotalPrice()}}</div>

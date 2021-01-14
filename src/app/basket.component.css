@@ -7,17 +7,19 @@
 .basketitem{
   height: 200px;
   display: flex;
-  justify-content: space-between;
-}
-
-.basketitem:nth-child(even){
-  background-color: #edf5ef;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
 }
 
 img{
   width: 250px;
   height: 200px;
   display: block;
+}
+
+.pizzainfo{
+  max-width: 50%;
 }
 
 ul{
@@ -31,4 +33,29 @@ ul{
 .info{
   font: 14px arial;
   color: gray;
+}
+
+.deletebtn{
+  border: none;
+  font-size: 32px;
+  color: white;
+  background-color: #e30613;
+  border-radius: 10px;
+  outline: none;
+}
+
+.addbtn{
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+}
+
+.orderbtn{
+  color: white;
+  background-color: #e30613;
+  border-radius: 10px;
+  outline: none;
+  border: none;
 }
