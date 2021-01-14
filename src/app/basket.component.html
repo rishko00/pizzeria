@@ -24,7 +24,7 @@
     <div class="form-group">
       <label>Ім'я:</label>
       <input class="form-control" type="text" name="name" formControlName="name" [(ngModel)]="user"/>
-      <div class="alert alert-danger" *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched">
+      <div class="alert-danger" *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched">
         Вкажіть ім'я
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="form-group">
       <label>Номер телефону:</label>
       <input class="form-control" type="text" name="phoneNumber" formControlName="phoneNumber" [(ngModel)]="phoneNumber"/>
-      <div class="alert alert-danger" *ngIf="myForm.controls['phoneNumber'].invalid && myForm.controls['phoneNumber'].touched">
+      <div class="alert-danger" *ngIf="myForm.controls['phoneNumber'].invalid && myForm.controls['phoneNumber'].touched">
         Вкажіть правильний номер
       </div>
     </div>
