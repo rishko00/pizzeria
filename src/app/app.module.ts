@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza.component';
 import { BasketComponent } from './basket.component';
@@ -12,6 +11,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthComponent } from './auth-admin.component';
 import { AdminComponent } from './admin.component';
+import { FormsModule, ReactiveFormsModule, NgModel, NgForm, FormGroup, FormControl, Validators  } from '@angular/forms';
 
 let firebaseConfig = {
   apiKey: "AIzaSyDYEr4fNYYIDy-XNIk8g4Uht-WVJtmFPkE",
@@ -29,6 +29,7 @@ let firebaseConfig = {
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

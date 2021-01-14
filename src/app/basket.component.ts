@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { BasketService } from './basket.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, NgModel, NgForm, FormGroup, FormControl, Validators  } from '@angular/forms';
 
 
 class ToOrder{
@@ -78,13 +78,20 @@ class Order{
 })
 
 export class BasketComponent {
+  myForm: FormGroup;
   basketItems: Object[] = this.basket.getItems();
   user: string;
   address: string;
   phoneNumber: string;
   date: Date = new Date();
 
-  constructor(private basket: BasketService, private http: HttpClient){ }
+  constructor(private basket: BasketService, private http: HttpClient){
+    this.myForm = new FormGroup({
+      'name': new FormControl("", [Validators.required, Validators.pattern("^[A-Z][a-z]*'?[a-z]+((-| )[A-Z]+'?[a-z]+){0,2}$")]),
+      'address': new FormControl("", [Validators.required]),
+      'phoneNumber': new FormControl("", [Validators.required, Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")])
+    })
+  }
 
   getTotalPrice(){
     let sum = 0;
