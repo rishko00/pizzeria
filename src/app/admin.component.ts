@@ -24,8 +24,8 @@ export class AdminComponent {
   }
 
   ngOnDestroy(){
-    this.http.put('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json', {Orders: []}).subscribe((val) => {
-        console.log("PO call successful value returned in body", val);
+    this.http.put('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Or.json', {Orders: []}).subscribe((val) => {
+        console.log("PUT call successful value returned in body", val);
       });
     for(let order of this.orders){
       this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', order) .subscribe((val) => {
