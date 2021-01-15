@@ -14,13 +14,13 @@
               {{i.name}}
               <button class="addingrbtn" (click)="addItem(i)">+</button>
               <button class="addingrbtn" (click)="deleteItem(i)">-</button>
-              <b class="ingrprice">   {{ getCountOfItems(i) }} x {{i.price}}</b>
+              <b class="ingrprice">   {{ pizza.getCountOfIngredient(i) }} x {{i.price}}</b>
           </li>
         </ul>
     </div>
     <div id="pizza">
       <div class="priceblock" id="priceblock">
-        <b id="price" hidden>Загальна сума: {{ pizza.price[pizza.defaultSize] }} грн </b>
+        <b id="price" hidden>Загальна сума: {{ pizza.price }} грн </b>
         <button id="addbutton" class="addbtn" (click)="addToBasket()">В кошик</button>
       </div>
     </div>

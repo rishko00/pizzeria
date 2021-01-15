@@ -1,64 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { DataService } from './data.service';
-import { Pizza, Ingredient, BasketItem } from './models';
+import { Pizza, Ingredient, BasketItem, PizzaBase } from './models';
 import { BasketService } from './basket.service';
-
-
-class Pizza{
-  name: string;
-  info: string;
-  price: Object;
-  image: string;
-  defaultSize: string;
-  ingredients: Ingredient[];
-
-  constructor(name, info, price, image, ingredients){
-    this.name = name;
-    this.info = info;
-    this.image = image;
-    this.price = price;
-    this.ingredients = ingredients;
-  }
-}
-
-class Ingredient{
-  name: string;
-  price: number;
-  image: string;
-  constructorImage: string;
-
-  constructor(name, price, image, constructorImage){
-    this.name = name;
-    this.price = price;
-    this.image = image;
-    this.constructorImage = constructorImage;
-  }
-}
-
-class PizzaBase{
-  name: string;
-  price: Object;
-  constructorImage: string;
-
-  constructor(name, price, constructorImage){
-    this.name = name;
-    this.price = price;
-    this.constructorImage = constructorImage;
-  }
-}
-
-class Order{
-  item: Pizza;
-  totalPrice: number;
-  count: number;
-
-  constructor(item, totalPrice, count){
-    this.item = item;
-    this.totalPrice = totalPrice;
-    this.count = count;
-  }
-}
-
 
 @Component({
   selector: 'constructor',
@@ -69,40 +12,30 @@ class Order{
 export class ConstructorComponent {
   ingredients: Ingredient[] = [];
   pizzaBase: PizzaBase[] = [];
-  pizza: Pizza = new Pizza('Ваш шедевр', '', {}, 'https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', []);
-  order: Order = new Order(this.pizza, 0, 1);
+  pizza: Pizza = new Pizza('Ваш шедевр','https://cdn10.arora.pro/f/upload/f81d1064-1337-4bbf-a894-909133be0aa2/file_manager/theme/no-photo-small.jpg', {}, '');
+  order: BasketItem = new BasketItem(this.pizza, 0, 1);
   z: number = 0;
 
-  constructor(private http: HttpClient, private basket: BasketService, private renderer: Renderer2){ }
-  
-  getIngredients(): Observable<Ingredient[]> {
-    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
-      let ingrList = data['Інгредієнти'];
-      return ingrList.map((ingr: any) => {
-        return {name: ingr.name, price: ingr.price, image: ingr.image, constructorImage: ingr.constructorImage }
-      })
-    }))
-  }
-
-  getPizzaBase(): Observable<PizzaBase[]> {
-    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
-      let baseList = data['Основи'];
-      return baseList.map((base: any) => {
-        return {name: base.name, price: base.price, constructorImage: base.constructorImage }
-      })
-    }))
-  }
+  constructor(private data: DataService, private basket: BasketService, private renderer: Renderer2){ }
 
   ngOnInit(){
-    this.getIngredients().subscribe((data) => this.ingredients = data);
-    this.getPizzaBase().subscribe((data) => this.pizzaBase = data);
+    this.data.getIngredients().subscribe((data) => {
+      for(let i of data){
+        this.ingredients.push(new Ingredient(i.name, i.price, i.image, i.constructorImage));
+      }
+    });
+
+    this.data.getPizzaBase().subscribe((data) => {
+      for(let i of data){
+        this.pizzaBase.push(new PizzaBase(i.name, i.image, i.prices));
+      }
+    });
   }
 
   addItem(i, size?: string){
     if(this.pizzaBase.includes(i)){
       this.pizza.info = i.name;
-      this.pizza.defaultSize = size;
-      this.pizza.price[this.pizza.defaultSize] = i.price[size];
+      this.pizza.setSize(size);
       this.pizza.ingredients = [];
       document.getElementById('addbutton').style.visibility = 'visible';
       document.getElementById('price').hidden = false;
@@ -118,14 +51,14 @@ export class ConstructorComponent {
       }
       else{
         if(this.pizza.ingredients.length == 10){
-          alert('Max items');
+          alert('Максимальна кількість інгредієнтів: 10');
         }
-        else if(this.getCountOfItems(i) >= 5){
-          alert('Max item');
+        else if(this.pizza.getCountOfIngredient(i) >= 5){
+          alert('Максимальна кількість одного інгредієнта: 5');
         }
         else{
           this.pizza.ingredients.push(i);
-          this.pizza.price[this.pizza.defaultSize] += Number(i.price);
+          this.pizza.price += Number(i.price);
         }
       }
     }
@@ -139,11 +72,11 @@ export class ConstructorComponent {
     }
   }
 
-  deleteItem(i){
+  deleteItem(i: Ingredient){
     if(this.pizza.ingredients.includes(i)){
       let c = this.pizza.ingredients.findIndex(el => el == i);
       this.pizza.ingredients.splice(c, 1);
-      this.pizza.price[this.pizza.defaultSize] -= i.price;
+      this.pizza.price -= i.price;
       let elements = document.getElementsByClassName('pizzaimage');
       for(let j of elements){
         if (i.constructorImage == j.getAttribute('src')){
@@ -155,19 +88,7 @@ export class ConstructorComponent {
   }
 
   addToBasket(){
-    this.order.totalPrice = this.pizza.price[this.pizza.defaultSize];
+    this.order.totalPrice = this.pizza.price;
     this.basket.add(this.order);
-  }
-
-  getCountOfItems(i){
-    let count = 0;
-    if(this.pizza.ingredients){
-      for(let j of this.pizza.ingredients){
-        if(i == j){
-          count++;
-        }
-      }
-    }
-    return count;
   }
 }

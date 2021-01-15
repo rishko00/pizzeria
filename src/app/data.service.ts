@@ -33,7 +33,7 @@ export class DataService{
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
       let baseList = data['Основи'];
       return baseList.map((base: any) => {
-        return {name: base.name, price: base.price, constructorImage: base.constructorImage }
+        return {name: base.name, prices: base.price, image: base.constructorImage }
       })
     }))
   }
