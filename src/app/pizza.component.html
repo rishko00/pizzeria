@@ -5,7 +5,7 @@
       <li class="name"><b>{{ p.name }}</b></li>
       <li class="info">{{ p.info | slice:0:54}}...</li>
       <li>
-        <button id="{{p.name}} 22 cm" class="sizebtn" (click)="setSize(p, '22 cm')">22 cm</button>
+        <button id="{{p.name}} 22 cm" class="sizebtn sizebtnchecked" (click)="setSize(p, '22 cm')">22 cm</button>
         <button id="{{p.name}} 30 cm" class="sizebtn" (click)="setSize(p, '30 cm')">30 cm</button>
         <button id="{{p.name}} 36 cm" class="sizebtn" (click)="setSize(p, '36 cm')">36 cm</button>
       </li>
@@ -25,7 +25,7 @@
             <img class="ingrimage" src="{{i.image}}"/>  {{i.name}}
               <button class="addingrbtn" (click)="addIngredient(i)">+</button>
               <button class="addingrbtn" (click)="deleteIngredient(i)">-</button>
-              <b class="ingrprice">   {{ i.count }} x {{i.price}}</b>
+              <b class="ingrprice">   {{ showPizza.getCountOfIngredient(i) }} x {{i.price}}</b>
           </li>
       </ul>
     </div>
@@ -35,12 +35,12 @@
         <li class="info">{{ showPizza.info }}</li>
         <li><img class="pizzaimage" src="{{ showPizza.image }}"/></li>
         <li>
-          <button id="{{showPizza.name}} 22 cm" class="sizebtn" (click)="setSize(showPizza, '22 cm')">22 cm</button>
+          <button id="{{showPizza.name}} 22 cm" class="sizebtn sizebtnchecked" (click)="setSize(showPizza, '22 cm')">22 cm</button>
           <button id="{{showPizza.name}} 30 cm" class="sizebtn" (click)="setSize(showPizza, '30 cm')">30 cm</button>
           <button id="{{showPizza.name}} 36 cm" class="sizebtn" (click)="setSize(showPizza, '36 cm')">36 cm</button>
         </li>
-        <li class="price">{{ order.totalPrice }} грн
-          <div id="basketbtn" class="basketbtn" (click)="addPizzaToBasket(showPizza)">В кошик</div>
+        <li class="price">{{ basketitem.totalPrice }} грн
+          <div id="basketbtn" class="basketbtn" (click)="addPizzaToBasket()">В кошик</div>
         </li>
       </ul>
   </div>

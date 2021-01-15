@@ -33,24 +33,10 @@ abstract class ProductWithChoise{
 
 export class Ingredient extends Product{
   constructorImage: string;
-  count: number;
 
   constructor(name, price, image, constructorImage){
     super(name, price, image);
     this.constructorImage = constructorImage;
-    this.count = 0;
-  }
-
-  addItem(){
-    if(this.count < 5){
-      this.count++;
-    }
-  }
-
-  delItem(){
-    if(this.count > 0){
-      this.count--;
-    }
   }
 }
 
@@ -69,8 +55,14 @@ export class Pizza extends ProductWithChoise{
     this.price = this.prices[size];
   };
 
-  gop(){
-    console.log('dddd')
+  getCountOfIngredient(ingr: Ingredient){
+    let res = 0;
+    if(this.ingredients){
+      for(let i of this.ingredients){
+        if(i == ingr) res++;
+      }
+    }
+    return res;
   }
 }
 

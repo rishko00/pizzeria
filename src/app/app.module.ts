@@ -6,6 +6,7 @@ import { PizzaComponent } from './pizza.component';
 import { BasketComponent } from './basket.component';
 import { ConstructorComponent } from './constructor.component';
 import { BasketService } from './basket.service';
+import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -36,7 +37,7 @@ let firebaseConfig = {
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [BasketService],
+  providers: [BasketService, DataService],
   
   bootstrap: [AppComponent]
 })

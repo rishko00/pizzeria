@@ -1,56 +1,14 @@
-class Pizza{
-  name: string;
-  info: string;
-  price: Object;
-  image: string;
-  defaultSize: string;
-  ingredients: Ingredient[];
-
-  constructor(name, info, price, image, ingredients){
-    this.name = name;
-    this.info = info;
-    this.image = image;
-    this.price = price;
-    this.ingredients = ingredients;
-  }
-}
-
-
-class Ingredient{
-  name: string;
-  price: number;
-  image: string;
-
-  constructor(name, price, image){
-    this.name = name;
-    this.price = price;
-    this.image = image;
-  }
-}
-
-
-class Order{
-  item: Pizza;
-  totalPrice: number;
-  count: number;
-
-  constructor(item, totalPrice, count){
-    this.item = item;
-    this.totalPrice = totalPrice;
-    this.count = count;
-  }
-}
+import { BasketItem } from './models';
 
 
 export class BasketService{
   countOfOrders: number = JSON.parse(localStorage.getItem('Order')) ? JSON.parse(localStorage.getItem('Order')).length : 0;
 
-
   getLength(){
     return this.countOfOrders;
   }
 
-  add(order: Order){
+  add(order: BasketItem){
     let obj = new Array();
     let data = JSON.parse(localStorage.getItem('Order'));
     if(data == null){
@@ -75,7 +33,7 @@ export class BasketService{
     } 
   }
 
-  delete(order: Order){
+  delete(order: BasketItem){
     let arr = this.getItems();
     for(let i of arr){
       if(JSON.stringify(i) == JSON.stringify(order)){
@@ -91,7 +49,7 @@ export class BasketService{
     return JSON.parse(localStorage.getItem('Order'));
   }
 
-  incOrder(o: Order, act: string){
+  incOrder(o: BasketItem, act: string){
     let arr = this.getItems();
     for(let i of arr){
       if(JSON.stringify(i) == JSON.stringify(o)){
