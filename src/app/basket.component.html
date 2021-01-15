@@ -13,7 +13,7 @@
       <button class="addbtn" (click)="incrOrder(i, '-')">-</button>
     </div>
     <div><b>{{ i.totalPrice }} грн</b></div>
-    <div><button class="deletebtn" (click)="deleteOrder(i)"> &#10006;</button></div>
+    <div class="deletebtn" (click)="deleteOrder(i)"></div>
   </div>
   <div class="totalprice"><b>Сума замовлення: {{getTotalPrice()}} грн</b></div>
   <div><button class="orderbtn" (click)="toOrder()">Оформити замовлення</button></div>

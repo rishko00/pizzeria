@@ -1,14 +1,15 @@
 .header{
   border-bottom: 1px solid lightgray;
-  margin-bottom: 20px;
   width: 100%;
   display: flex;
+  color: white;
   flex-direction: column;
+  background: url("https://sidewalkpizzeria.com/wp-content/uploads/2017/07/home_splash_bg.jpg") 100% 100% no-repeat;
+  background-size: cover;
 }
 
 .head{
-  border-bottom: 1px solid lightgray;
-  height: 60px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
 }
@@ -26,15 +27,13 @@ ul{
   color: lightgray;
 }
 
-img{
+.pizzeria{
   flex-basis: 60px;
-  height: 90%;
-  border-right: 1px solid lightgray;
-  display: block;
+  font: 32px arial;
+  font-family: Brush Script MT, Brush Script Std, cursive;
 }
 
 .auth{
-  border: 1px solid lightgray;
   border-radius: 15%;
   flex-basis: 50px;
   height: 90%;
@@ -51,7 +50,7 @@ img{
 nav{
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: 80px;
 }
 
 .links{
@@ -62,7 +61,7 @@ nav{
   display: block;
   font: 16px arial;
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
   margin: 10px;
 }
@@ -77,10 +76,13 @@ nav{
 }
 
 nav .basket{
+  background: url("https://img1.freepng.ru/20180401/rsw/kisspng-computer-icons-trade-basket-add-to-cart-button-5ac1893833fa53.8202610115226330162129.jpg") 100% 100% no-repeat;
+  background-size: cover;
+  opacity: 0.
+  border-radius: 10px;
   flex-basis: 100px;
-  height: 50%;
-  border-radius: 10%;
-  background-color: #e30613;
+  height: 90px;
+  width: 90px;
   color: white;
 }
 

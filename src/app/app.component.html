@@ -1,6 +1,6 @@
 <div class="header">
   <div class="head">
-    <img src="https://i.pinimg.com/originals/32/17/8c/32178c188f1d6c7fc134b3ac29555757.jpg">
+    <span class="pizzeria"><b>Pizzeria</b></span>
     <ul>
         <li class="number"><b>+38 (044) 000 00 00</b></li>
         <li class="info">Цілодобова доставка</li>
@@ -16,7 +16,7 @@
       <a href="#">Напої</a>
       <a href="#">Соуси</a>
     </div>
-    <div class="basket" routerLink="basket">Кошик | {{ basket.getLength() }}</div>
+    <div class="basket" routerLink="basket">{{ basket.getLength() }}</div>
   </nav>
 </div>
 <router-outlet></router-outlet>

@@ -27,10 +27,8 @@
 .pizza{
   margin: 2%;
   text-align: left;
-  border-radius: 5%; 
   border-bottom: 1px solid lightgray; 
   flex-basis: 20%;
-  transform: -4px;
 }
 
 .pizza:hover{
@@ -140,7 +138,7 @@ li{
 }
 
 .sizebtn:nth-child(1){
-  border-radius: 20% 0% 0% 20%;
+  border-radius: 10px 0% 0% 10px;
 }
 
 .sizebtn:nth-child(2){
@@ -148,15 +146,13 @@ li{
 }
 
 .sizebtn:nth-child(3){
-  border-radius: 0% 20% 20% 0%;
+  border-radius: 0% 10px 10px 0%;
 }
 
 .add{
-  margin: 0 auto;
-  background-color: lightgray;
+  background-color: rgb(241, 237, 237);
   text-align: center;
 }
-
 
 .add:hover{
   color:#e30613;
