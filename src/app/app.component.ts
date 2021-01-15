@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BasketService } from './basket.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +9,5 @@ import { BasketService } from './basket.service';
 
 export class AppComponent {
   countOfItems: number = this.basket.getLength();
-  constructor(private basket: BasketService){
-   }
+  constructor(private basket: BasketService){}
 }

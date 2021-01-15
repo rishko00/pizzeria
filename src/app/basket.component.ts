@@ -34,7 +34,7 @@ export class BasketComponent {
   }
 
   toOrder() {
-    let order = new Order(this.basket.getItems(), this.user, this.address, this.phoneNumber, new Date());
+    let order = new Order(this.basket.getItems(), this.user, this.address, this.phoneNumber, new Date(), false);
     this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', order) .subscribe((val) => {
       console.log("POST call successful value returned in body", val);
     });

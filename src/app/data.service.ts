@@ -1,6 +1,6 @@
-import { Pizza, Ingredient, BasketItem, PizzaBase } from './models';
+import { Pizza, Ingredient, Order, PizzaBase } from './models';
 import { Injectable } from  '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
 
@@ -36,5 +36,9 @@ export class DataService{
         return {name: base.name, prices: base.price, image: base.constructorImage }
       })
     }))
+  }
+
+  getOrders(): Observable<Object> {
+    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json').pipe(map((data: any) => { return data }));
   }
 }

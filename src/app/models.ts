@@ -95,13 +95,15 @@ export class Order{
   address: string;
   phoneNumber: string;
   date: Date;
+  processed: boolean;
 
-  constructor(items, user, address, phoneNumber, date){
+  constructor(items, user, address, phoneNumber, date, processed){
     this.address = address;
     this.items = items;
     this.user = user;
     this.phoneNumber = phoneNumber;
     this.date = date;
+    this.processed = processed;
     this.totalPrice = this.getTotalPrice();
   }
 
