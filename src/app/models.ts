@@ -40,6 +40,9 @@ export class Ingredient extends Product{
   }
 }
 
+export class PizzaBase extends ProductWithChoise{
+}
+
 export class Pizza extends ProductWithChoise{
   ingredients: Ingredient[];
   info: string;

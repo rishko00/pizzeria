@@ -1,7 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { map } from 'rxjs/operators'
-import { Observable } from 'rxjs';
+import { DataService } from './data.service';
+import { Pizza, Ingredient, BasketItem } from './models';
 import { BasketService } from './basket.service';
 
 

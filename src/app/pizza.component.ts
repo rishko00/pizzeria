@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from './data.service';
 import { BasketService } from './basket.service';
 import { Pizza, Ingredient, BasketItem } from './models';
