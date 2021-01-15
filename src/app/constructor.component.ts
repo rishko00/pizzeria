@@ -36,6 +36,7 @@ export class ConstructorComponent {
     if(this.pizzaBase.includes(i)){
       this.pizza.info = i.name;
       this.pizza.setSize(size);
+      this.order.totalPrice = i.price;
       this.pizza.ingredients = [];
       document.getElementById('addbutton').style.visibility = 'visible';
       document.getElementById('price').hidden = false;
@@ -59,6 +60,7 @@ export class ConstructorComponent {
         else{
           this.pizza.ingredients.push(i);
           this.pizza.price += Number(i.price);
+          this.order.totalPrice += i.price;
         }
       }
     }

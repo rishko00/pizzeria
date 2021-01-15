@@ -41,6 +41,12 @@ export class Ingredient extends Product{
 }
 
 export class PizzaBase extends ProductWithChoise{
+  constructorImage: string;
+
+  constructor(name, image, prices){
+    super(name, image, prices);
+    this.constructorImage = image;
+  }
 }
 
 export class Pizza extends ProductWithChoise{
