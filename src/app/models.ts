@@ -56,10 +56,12 @@ export class Ingredient extends Product{
 
 export class Pizza extends ProductWithChoise{
   ingredients: Ingredient[];
+  info: string;
 
-  constructor(name, image, prices){
+  constructor(name, image, prices, info){
     super(name, image, prices);
     this.ingredients = [];
+    this.info = info;
   };
 
   setSize(size: string){

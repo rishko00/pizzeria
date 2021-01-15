@@ -61,12 +61,20 @@ export class PizzaComponent {
 
   constructor(private http: HttpClient, private basket: BasketService) { }
 
+  /* getPizza(): Observable<Pizza[]> {
+    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
+      let pizzaList = data['Pizza'];
+      return pizzaList.map((pizza: any) => {
+        return {name: pizza.name, info: pizza.info, prices: pizza.price, image: pizza.image, size: Object.keys(pizza.price)[0], price: pizza.price[Object.keys(pizza.price)[0]], ingredients: [] }
+      })
+    }))
+  } */
+
   getPizza(): Observable<Pizza[]> {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
       let pizzaList = data['Pizza'];
       return pizzaList.map((pizza: any) => {
-        return new Pizza(pizza.name, pizza.image, pizza.prices);
-        /* return {name: pizza.name, info: pizza.info, prices: pizza.price, image: pizza.image, size: Object.keys(pizza.price)[0], price: pizza.price[Object.keys(pizza.price)[0]], ingredients: [] } */
+        return {name: pizza.name, info: pizza.info, prices: pizza.price, image: pizza.image }
       })
     }))
   }
@@ -81,24 +89,29 @@ export class PizzaComponent {
   }
 
   ngOnInit(){
-    this.getPizza().subscribe((data) => this.pizza = data);
-    this.getIngredients().subscribe((data) => this.ingredients = data);
+    this.getPizza().subscribe((data) => {
+      for(let i of data){
+        this.pizza.push(new Pizza(i.name, i.image, i.prices, i.info));
+      }
+    });
+    this.getIngredients().subscribe((data) => {
+      for(let i of data){
+        this.ingredients.push(new Ingredient(i.name, i.price, i.image, i.constructorImage));
+      }
+    });
+
     for(let i of this.pizza){
       document.getElementById(i.name + ' ' + '22 cm').classList.add('sizebtnchecked');
     }
   }
 
   setSize(p: Pizza, size: string){
-    /* for(let i of this.pizza){
+    for(let i of this.pizza){
       if(i == p){
         i.setSize(size);
       }
-    } */
-    let a = new Pizza('', '', {})
-    a.gop();
+    }
 
-    console.log(this.pizza[0] instanceof Pizza);
-    console.log(a instanceof Pizza);
     document.getElementById(p.name + ' ' + size).classList.add('sizebtnchecked');
     for(let i in p.prices){
       if(i != size) document.getElementById(p.name + ' ' + i).classList.remove('sizebtnchecked');
