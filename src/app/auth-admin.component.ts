@@ -31,6 +31,6 @@ export class AuthComponent {
   login(){
     this.auth.login(this.email, this.password);
     if(localStorage.getItem('user')) return true;
-    else return fale
+    else return falsee
   }
 }
