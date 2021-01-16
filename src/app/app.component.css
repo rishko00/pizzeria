@@ -78,7 +78,7 @@ nav{
 nav .basket{
   background: url("https://img1.freepng.ru/20180401/rsw/kisspng-computer-icons-trade-basket-add-to-cart-button-5ac1893833fa53.8202610115226330162129.jpg") 100% 100% no-repeat;
   background-size: cover;
-  opacity: 0.
+  opacity: 0.5;
   border-radius: 10px;
   flex-basis: 100px;
   height: 90px;
