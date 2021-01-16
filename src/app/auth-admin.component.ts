@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './auth.service'
 
 @Component({
-  selector: 'app-root',
+  selector: 'auth',
   template: `
   <div class="form-group">
         <label>Email:</label>
@@ -31,6 +31,6 @@ export class AuthComponent {
   login(){
     this.auth.login(this.email, this.password);
     if(localStorage.getItem('user')) return true;
-    else return falsee
+    else return false;
   }
 }

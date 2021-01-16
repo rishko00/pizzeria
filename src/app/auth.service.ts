@@ -29,7 +29,7 @@ export class AuthService{
   async logout(){
     await this.afAuth.signOut();
     localStorage.removeItem('user');
-    this.router.navigate(['aut']);
+    this.router.navigate(['auth']);
   }
 
   get isLoggedIn(): boolean {
