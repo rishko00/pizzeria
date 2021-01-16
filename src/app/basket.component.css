@@ -2,7 +2,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container{
+.container1{
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -12,9 +12,24 @@
 .basketitem{
   height: 200px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid lightgray;
+}
+
+.orderform{
+  min-width: 50%;
+  min-height: 70%;
+  background: url("https://ilmolino.ua/img/article/9/57_main.jpg") 100% 100% no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+
+form{
+  color: white;
+  width: 50%;
+  margin: 0 auto;
 }
 
 img{
@@ -40,6 +55,21 @@ ul{
   color: gray;
 }
 
+#order{
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5); 
+}
+
+
+
 .deletebtn{
   border: none;
   background: url("https://w7.pngwing.com/pngs/144/746/png-transparent-computer-icons-rubbish-bins-waste-paper-baskets-recycling-bin-button-cdr-text-rectangle.png") 100% 100% no-repeat;
@@ -64,11 +94,16 @@ ul{
   border-radius: 50%;
 }
 
+.addbtn:hover{
+  background-color: lightgray;
+}
+
 .orderbtn{
   color: white;
   background-color: #e30613;
   border-radius: 10px;
   height: 40px;
+  margin: 0 auto;
   outline: none;
   border: none;
 }

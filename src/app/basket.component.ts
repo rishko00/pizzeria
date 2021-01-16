@@ -25,6 +25,16 @@ export class BasketComponent {
     })
   }
 
+  showOrderForm(){
+    document.getElementById('order').style.display = 'flex';
+  }
+
+  hideOrderForm(event){
+    if(event.target.id == 'order' || event.target.id == 'orderbtn'){
+      document.getElementById('o').style.display = 'none';
+    }
+  }
+
   getTotalPrice(){
     let sum = 0;
     for(let i of this.basketItems){

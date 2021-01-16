@@ -61,7 +61,6 @@ export class PizzaComponent {
       document.getElementById('ingr').style.display = 'none';
       this.showPizza.ingredients = [];
       this.showPizza = new Pizza('', '', {}, '');
-      console.log(this.showPizza);
       this.basketitem.item = new Pizza('', '', {}, '');
       this.basketitem.totalPrice = 0;
     }
