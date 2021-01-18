@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators'
 
 export class AdminComponent {
   orders: Order[] = [];
+  showOrders = [];
 
   constructor(private data: DataService, private http: HttpClient){}
 
@@ -21,6 +22,13 @@ export class AdminComponent {
         this.orders.push(new Order(data[i].items, data[i].user, data[i].address, data[i].phoneNumber, data[i].date, data[i].processed))
       }
     });
+  }
+
+  getOrders(){
+    for(let i = 0; i < this.orders.length; i+= 10){
+      this.showOrders.push(this.orders.slice(i, i + 10));
+    }
+    console.log(this.showOrders);
   }
 
   ngOnDestroy(){
@@ -37,5 +45,6 @@ export class AdminComponent {
   deleteOrder(o: Order){
     let index = this.orders.findIndex(el => o == el);
     this.orders.splice(index, 1);
+    console.log(this.showOrders);
   }
 }

@@ -31,7 +31,7 @@ export class BasketComponent {
 
   hideOrderForm(event){
     if(event.target.id == 'order' || event.target.id == 'orderbtn'){
-      document.getElementById('orde').style.display = 'none';
+      document.getElementById('order').style.display = 'none';
     }
   }
 
