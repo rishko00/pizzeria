@@ -1,7 +1,12 @@
-<a href="#"> hellloooo</a>
+<div class="orders">
   <div *ngFor="let o of orders">
-    {{ o.address }}  {{ o.user }} {{ o.items.length }} {{ o.phoneNumber }} 
+    <div *ngFor="let i of items">
+      <div *ngFor="let j of Object.keys(i)">
+        {{ i.j }}
+      </div>
+    </div> 
     <input type="checkbox" [(ngModel)]="o.processed">
     <button (click)="deleteOrder(o)">delete</button>
   </div>
   <button (click)="auth.logout()">exit</button>
+</div>

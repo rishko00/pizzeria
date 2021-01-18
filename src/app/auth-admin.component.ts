@@ -11,10 +11,10 @@ import { AuthService } from './auth.service'
 
       <div class="form-group">
         <label for="Autocomplete">Password</label>
-        <input type="text" class="form-control" name="email" [(ngModel)]="email"/>
+        <input type="text" class="form-control" name="password" [(ngModel)]="password"/>
       </div>
-      <button class="orderbtn" (click)="login()">Оформити замовлення</button>
-      <div class="alert alert-danger" role="alert" *ngIf="login()">
+      <button class="orderbtn" (click)="login()">ОК</button>
+      <div class="alert alert-danger" role="alert">
   A simple danger alert—check it out!
 </div>
   `
@@ -30,7 +30,5 @@ export class AuthComponent {
 
   login(){
     this.auth.login(this.email, this.password);
-    if(localStorage.getItem('user')) return true;
-    else return false;
   }
 }
