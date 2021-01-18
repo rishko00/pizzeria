@@ -1,4 +1,4 @@
-abstract class Product{
+export class Product{
   name: string;
   price: number;
   image: string;
@@ -10,7 +10,7 @@ abstract class Product{
   }
 }
 
-abstract class ProductWithChoise{
+export class ProductWithChoise{
   name: string;
   price: number;
   image: string;
@@ -75,9 +75,8 @@ export class Pizza extends ProductWithChoise{
   }
 }
 
-
 export class BasketItem{
-  item: Pizza;
+  item: Pizza | Product | ProductWithChoise;
   totalPrice: number;
   count: number;
 

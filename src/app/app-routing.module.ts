@@ -6,6 +6,7 @@ import { ConstructorComponent } from './constructor.component';
 import { AuthComponent } from './auth-admin.component';
 import { AdminComponent } from './admin.component';
 import { AdminGuard } from './admin.guard';
+import { SnackComponent } from './snacks.component'; 
 
 const routes: Routes = [
     { path: '', component: PizzaComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
     { path: 'basket', component: BasketComponent},
     { path: 'constructor', component: ConstructorComponent},
     { path: 'auth', component: AuthComponent },
-    { path: 'list', component: AdminComponent, canActivate: [AdminGuard]} 
+    { path: 'list', component: AdminComponent, canActivate: [AdminGuard]},
+    { path: 'snacks', component: SnackComponent }
 ];
 
 @NgModule({

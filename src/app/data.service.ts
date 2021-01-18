@@ -1,4 +1,4 @@
-import { Pizza, Ingredient, Order, PizzaBase } from './models';
+import { Pizza, Ingredient, Order, Product, ProductWithChoise, PizzaBase } from './models';
 import { Injectable } from  '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
@@ -10,6 +10,24 @@ import { Observable } from 'rxjs';
 
 export class DataService{
   constructor(public http: HttpClient){}
+
+  getProductsWithChoise(name: string): Observable<ProductWithChoise[]>{
+    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
+      let productList = data[name];
+      return productList.map((product: any) => {
+        return {name: product.name, prices: product.price, image: product.image }
+      })
+    }))
+  }
+
+  getProducts(name: string): Observable<Product[]>{
+    return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{
+      let productList = data[name];
+      return productList.map((product: any) => {
+        return {name: product.name, price: product.price, image: product.image}
+      })
+    }))
+  }
 
   getPizza(): Observable<Pizza[]> {
     return this.http.get('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/.json').pipe(map(data =>{

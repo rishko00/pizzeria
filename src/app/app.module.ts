@@ -12,6 +12,8 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthComponent } from './auth-admin.component';
 import { AdminComponent } from './admin.component';
+import { SnackComponent } from './snacks.component'; 
+
 import { FormsModule, ReactiveFormsModule, NgModel, NgForm, FormGroup, FormControl, Validators  } from '@angular/forms';
 
 let firebaseConfig = {
@@ -26,7 +28,7 @@ let firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent
+    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent, SnackComponent
   ],
   imports: [
     FormsModule,
