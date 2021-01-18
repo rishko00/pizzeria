@@ -11,24 +11,24 @@ import { map } from 'rxjs/operators'
 })
 
 export class AdminComponent {
-  orders: Order[] = [];
-  showOrders = [];
+  orders = [];
+  pageNumber: number = 0;
 
   constructor(private data: DataService, private http: HttpClient){}
 
   ngOnInit(){
     this.data.getOrders().subscribe((data) => {
+      let j = -1;
       for(let i of Object.keys(data)){
-        this.orders.push(new Order(data[i].items, data[i].user, data[i].address, data[i].phoneNumber, data[i].date, data[i].processed))
+        if(this.orders.length == 0 || this.orders[j].length > 10){
+          this.orders.push([]);
+          j++;
+        }
+        else {
+          this.orders[j].push(new Order(data[i].items, data[i].user, data[i].address, data[i].phoneNumber, data[i].date, data[i].processed))
+        }
       }
     });
-  }
-
-  getOrders(){
-    for(let i = 0; i < this.orders.length; i+= 10){
-      this.showOrders.push(this.orders.slice(i, i + 10));
-    }
-    console.log(this.showOrders);
   }
 
   ngOnDestroy(){
@@ -36,15 +36,21 @@ export class AdminComponent {
         console.log("PUT call successful value returned in body", val);
       });
     for(let order of this.orders){
-      this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', order) .subscribe((val) => {
-        console.log("POST call successful value returned in body", val);
-      });
+      for(let i of order){
+        this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', i) .subscribe((val) => {
+          console.log("POST call successful value returned in body", val);
+        });
+      }
     }
   }
 
   deleteOrder(o: Order){
-    let index = this.orders.findIndex(el => o == el);
-    this.orders.splice(index, 1);
-    console.log(this.showOrders);
+    let index = this.orders[this.pageNumber].findIndex(el => o == el);
+    this.orders[this.pageNumber].splice(index, 1);
+  }
+
+  setPageNumber(n: number){
+    this.pageNumber = n;
+    window.scroll(0,0);
   }
 }
