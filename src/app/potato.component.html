@@ -1,0 +1,15 @@
+<div class="container1">
+  <div class="potato" *ngFor="let s of potato">
+    <ul>
+      <li><img class="potatoimage" src="{{ s.image }}"/></li>
+      <li class="name"><b>{{ s.name }}</b></li>
+      <li>
+        <button id="{{s.name}} 200 g" class="sizebtn sizebtnchecked" (click)="setSize(s, '200 g')">200 g</button>
+        <button id="{{s.name}} 400 g" class="sizebtn" (click)="setSize(s, '400 g')">400 g</button>
+      </li>
+      <li class="price"><b>{{ s.price }} грн</b>
+        <button class="basketbtn" (click)="addToBasket(s)">В кошик</button>
+      </li>
+    </ul>
+  </div>
+</div>

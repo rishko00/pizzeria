@@ -1,0 +1,38 @@
+.container1{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font: 14px arial;
+}
+
+.sauce{
+  margin: 2%;
+  text-align: left;
+  border-bottom: 1px solid lightgray; 
+  flex-basis: 20%;
+}
+
+.sauce:hover{
+  border: none; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+  transform: translateY(-4px);
+  transition: 500ms;
+}
+
+.sauceimage{
+  width: 250px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.sauce ul{
+  display: inline-block;
+  padding: 0;
+  margin-left: 10px;
+}
+
+li{
+  list-style-type: none;
+}

@@ -17,7 +17,7 @@
 		<div><input type="checkbox" [(ngModel)]="o.processed"></div>
 			<div><button (click)="deleteOrder(o)">delete</button></div>
 		</div>
-    <div *ngIf="orders.length > ">
+    <div *ngIf="orders.length > 1">
       <div class="pages" *ngFor="let o of orders; let i = index">
         <div (click)="setPageNumber(i)">{{ i }}</div>
       </div>

@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthComponent } from './auth-admin.component';
 import { AdminComponent } from './admin.component';
 import { SnackComponent } from './snacks.component'; 
+import { PotatoComponent } from './potato.component';
+import { SauceComponent } from './sauce.component';
 
 import { FormsModule, ReactiveFormsModule, NgModel, NgForm, FormGroup, FormControl, Validators  } from '@angular/forms';
 
@@ -28,7 +30,8 @@ let firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent, SnackComponent
+    AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent, SnackComponent,
+    PotatoComponent, SauceComponent
   ],
   imports: [
     FormsModule,
