@@ -9,6 +9,7 @@ import { AdminGuard } from './admin.guard';
 import { SnackComponent } from './snacks.component'; 
 import { PotatoComponent } from './potato.component';
 import { SauceComponent } from './sauce.component';
+import { DrinksComponent } from './drinks.component';
 
 const routes: Routes = [
     { path: '', component: PizzaComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
     { path: 'list', component: AdminComponent, canActivate: [AdminGuard]},
     { path: 'snacks', component: SnackComponent },
     { path: 'potato', component: PotatoComponent },
-    { path: 'sauces', component: SauceComponent }
+    { path: 'sauces', component: SauceComponent },
+    { path: 'drinks', component: DrinksComponent }
 
 ];
 

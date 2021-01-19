@@ -34,15 +34,7 @@ export class BasketComponent {
       document.getElementById('order').style.display = 'none';
     }
   }
-
-  getTotalPrice(){
-    let sum = 0;
-    for(let i of this.basketItems){
-      sum += i['totalPrice'];
-    }
-    return sum;
-  }
-
+  
   toOrder() {
     let order = new Order(this.basket.getItems(), this.user, this.address, this.phoneNumber, new Date(), false);
     this.http.post('https://pizzeria-ec9c3-default-rtdb.europe-west1.firebasedatabase.app/Orders.json', order) .subscribe((val) => {

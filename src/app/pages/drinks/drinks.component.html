@@ -1,0 +1,14 @@
+<div class="container1">
+  <div class="product" *ngFor="let d of drinks">
+    <ul>
+      <li><img class="productimage" src="{{ d.image }}"/></li>
+      <li class="name"><b>{{ d.name }}</b></li>
+      <li class="sizebtns">
+        <button *ngFor="let size of d.prices | keyvalue" id="{{d.name}} {{size.key}}" class="sizebtn" (click)="setSize(d, size.key)">{{ size.key }}</button>
+      </li>
+      <li class="price"><b>{{ d.price }} грн</b>
+        <button class="basketbtn" (click)="addToBasket(d)">В кошик</button>
+      </li>
+    </ul>
+  </div>
+</div>

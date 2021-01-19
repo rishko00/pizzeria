@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BasketService } from './basket.service';
+import { BasketService } from '../../../core/services/basket.service';
 
 @Component({
   selector: 'app-root',

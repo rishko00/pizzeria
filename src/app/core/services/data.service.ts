@@ -1,4 +1,4 @@
-import { Pizza, Ingredient, Order, Product, ProductWithChoise, PizzaBase } from './models';
+import { Pizza, Ingredient, Order, Product, ProductWithChoise, PizzaBase } from '../models/models';
 import { Injectable } from  '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'

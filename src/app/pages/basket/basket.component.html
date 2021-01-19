@@ -15,7 +15,7 @@
     <div><b>{{ i.totalPrice }} грн</b></div>
     <div class="deletebtn" (click)="deleteOrder(i)"></div>
   </div>
-  <div class="totalprice"><b>Сума замовлення: {{getTotalPrice()}} грн</b></div>
+  <div class="totalprice"><b>Сума замовлення: {{basket.getTotalPrice()}} грн</b></div>
   <div><button class="orderbtn" (click)="showOrderForm()">Оформити замовлення</button></div>
 </div>
 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { PizzaComponent } from './pizza.component';
+import { PizzaComponent } from '../pages/pizza/pizza.component';
 import { BasketComponent } from './basket.component';
 import { ConstructorComponent } from './constructor.component';
 import { BasketService } from './basket.service';
@@ -15,6 +15,7 @@ import { AdminComponent } from './admin.component';
 import { SnackComponent } from './snacks.component'; 
 import { PotatoComponent } from './potato.component';
 import { SauceComponent } from './sauce.component';
+import { DrinksComponent } from './drinks.component';
 
 import { FormsModule, ReactiveFormsModule, NgModel, NgForm, FormGroup, FormControl, Validators  } from '@angular/forms';
 
@@ -31,7 +32,7 @@ let firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent, SnackComponent,
-    PotatoComponent, SauceComponent
+    PotatoComponent, SauceComponent, DrinksComponent
   ],
   imports: [
     FormsModule,

@@ -49,6 +49,14 @@ export class BasketService{
     return JSON.parse(localStorage.getItem('Order'));
   }
 
+  getTotalPrice(){
+    let sum = 0;
+    for(let i of this.getItems()){
+      sum += i['totalPrice'];
+    }
+    return sum;
+  }
+
   incOrder(o: BasketItem, act: string){
     let arr = this.getItems();
     for(let i of arr){

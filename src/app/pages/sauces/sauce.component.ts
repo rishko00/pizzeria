@@ -4,9 +4,9 @@ import { BasketService } from './basket.service';
 import { Product, BasketItem } from './models';
 
 @Component({
-  selector: 'snacks',
-  templateUrl: './snacks.component.html',
-  styleUrls: ['./snacks.component.css']
+  selector: 'sauces',
+  templateUrl: './sauce.component.html',
+  styleUrls: ['./sauce.component.css']
 })
 
 export class SauceComponent {
