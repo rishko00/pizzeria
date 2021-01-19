@@ -14,7 +14,6 @@ export class PizzaComponent {
   showPizza: Pizza;
   basketitem: BasketItem = new BasketItem(new Pizza('','',{}, ''), 0, 1);
   ingredients: Ingredient[] = [];
-
   constructor(private data: DataService, private basket: BasketService) { }
 
   ngOnInit(){

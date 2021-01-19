@@ -1,13 +1,11 @@
 <div class="container1">
-  <div class="pizza" *ngFor="let p of pizza">
+  <div class="product" *ngFor="let p of pizza">
     <ul>
-      <li><img class="pizzaimage" src="{{ p.image }}"/></li>
+      <li><img class="productimage" src="{{ p.image }}"/></li>
       <li class="name"><b>{{ p.name }}</b></li>
       <li class="info">{{ p.info | slice:0:54}}...</li>
-      <li>
-        <button id="{{p.name}} 22 cm" class="sizebtn sizebtnchecked" (click)="setSize(p, '22 cm')">22 cm</button>
-        <button id="{{p.name}} 30 cm" class="sizebtn" (click)="setSize(p, '30 cm')">30 cm</button>
-        <button id="{{p.name}} 36 cm" class="sizebtn" (click)="setSize(p, '36 cm')">36 cm</button>
+      <li class="sizebtns">
+        <button *ngFor="let size of p.prices | keyvalue" id="{{p.name}} {{size.key}}" class="sizebtn" (click)="setSize(p, size.key)">{{ size.key }}</button>
       </li>
       <li class="price"><b>{{ p.price }} грн</b>
         <button class="basketbtn" (click)="addPizzaToBasket(p)">В кошик</button>
