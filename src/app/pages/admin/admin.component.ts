@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
-import { Order } from './models';
+import { DataService } from './core/services/data.service';
+import { Order } from './core/models/models';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 
 @Component({
-  selector: 'app-root',
+  selector: 'admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })

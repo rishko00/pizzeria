@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
-import { BasketService } from './basket.service';
-import { BasketItem, Order } from './models';
+import { BasketService } from './core/services/basket.service';
+import { BasketItem, Order } from './core/models/models';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators  } from '@angular/forms';
 
