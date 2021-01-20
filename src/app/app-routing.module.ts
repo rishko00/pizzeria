@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PizzaComponent } from './pizza.component';
-import { BasketComponent } from './basket.component';
-import { ConstructorComponent } from './constructor.component';
-import { AuthComponent } from './auth-admin.component';
-import { AdminComponent } from './admin.component';
-import { AdminGuard } from './admin.guard';
-import { SnackComponent } from './snacks.component'; 
-import { PotatoComponent } from './potato.component';
-import { SauceComponent } from './sauce.component';
-import { DrinksComponent } from './drinks.component';
+import { PizzaComponent } from './pages/pizza/pizza.component';
+import { BasketComponent } from './pages/basket/basket.component';
+import { ConstructorComponent } from './pages/constructor/constructor.component';
+import { AuthComponent } from './pages/auth-admin/auth-admin.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AdminGuard } from './core/guards/admin.guard';
+import { SnackComponent } from './pages/snacks/snacks.component'; 
+import { PotatoComponent } from './pages/potato/potato.component';
+import { SauceComponent } from './pages/sauces/sauce.component';
+import { DrinksComponent } from './pages/drinks/drinks.component';
 
 const routes: Routes = [
     { path: '', component: PizzaComponent},
