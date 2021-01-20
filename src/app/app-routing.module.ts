@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PizzaComponent } from './pages/pizza/pizza.component';
 import { BasketComponent } from './pages/basket/basket.component';
-import { ConstructorComponent } from './pages/constructor/constructor.component';
+import { ConstructorComponent } from './pages/cons/constructor.component';
 import { AuthComponent } from './pages/auth-admin/auth-admin.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminGuard } from './core/guards/admin.guard';

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pages/pizza/pizza.component';
 import { BasketComponent } from './pages/basket/basket.component';
-import { ConstructorComponent } from './pages/constructor/constructor.component';
+import { ConstructorComponent } from './pages/cons/constructor.component';
 import { BasketService } from './core/services/basket.service';
 import { DataService } from './core/services/data.service';
 import { AppRoutingModule } from './app-routing.module';
