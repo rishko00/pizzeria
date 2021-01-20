@@ -16,8 +16,7 @@ import { SnackComponent } from './pages/snacks/snacks.component';
 import { PotatoComponent } from './pages/potato/potato.component';
 import { SauceComponent } from './pages/sauces/sauce.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
-
-import { FormsModule, ReactiveFormsModule, NgModel, NgForm, FormGroup, FormControl, Validators  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 let firebaseConfig = {
   apiKey: "AIzaSyDYEr4fNYYIDy-XNIk8g4Uht-WVJtmFPkE",
