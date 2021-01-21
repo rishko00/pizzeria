@@ -24,5 +24,4 @@ export class ConstructorComponent {
         this.ingredients.push(new Ingredient(i.name, i.price, i.image, i.constructorImage));	
       }	
     });	
-  }
-}
+  

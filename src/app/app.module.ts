@@ -17,6 +17,8 @@ import { PotatoComponent } from './pages/potato/potato.component';
 import { SauceComponent } from './pages/sauces/sauce.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+
 
 let firebaseConfig = {
   apiKey: "AIzaSyDYEr4fNYYIDy-XNIk8g4Uht-WVJtmFPkE",
@@ -40,7 +42,8 @@ let firebaseConfig = {
     HttpClientModule,
     AppRoutingModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    GooglePlaceModule
   ],
   providers: [BasketService, DataService],
   

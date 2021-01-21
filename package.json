@@ -29,6 +29,7 @@
     "core": "^2.0.14",
     "firebase": "^8.2.2",
     "lodash-es": "^4.17.20",
+    "ngx-google-places-autocomplete": "^2.0.5",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
