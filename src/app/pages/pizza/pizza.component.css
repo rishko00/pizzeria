@@ -28,7 +28,7 @@
 
 .ingredients{
   display: flex;
-  overflow: scroll;
+  overflow-y: scroll;
   flex-basis: 60%;
 }
 

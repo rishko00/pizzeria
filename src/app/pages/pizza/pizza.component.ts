@@ -11,9 +11,10 @@ import { Pizza, Ingredient, BasketItem } from '../../app-core/models/models';
 
 export class PizzaComponent {
   pizza: Pizza[] = [];
-  showPizza: Pizza;
+  showPizza: Pizza = new Pizza('', '', {}, '');
   basketitem: BasketItem = new BasketItem(new Pizza('','',{}, ''), 0, 1);
   ingredients: Ingredient[] = [];
+
   constructor(private data: DataService, private basket: BasketService) { }
 
   ngOnInit(){
