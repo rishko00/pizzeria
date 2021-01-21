@@ -5,7 +5,7 @@ import { BasketComponent } from './pages/basket/basket.component';
 import { ConstructorComponent } from './pages/cons/constructor.component';
 import { AuthComponent } from './pages/auth-admin/auth-admin.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { AdminGuard } from './core/guards/admin.guard';
+import { AdminGuard } from './app-core/guards/admin.guard';
 import { SnackComponent } from './pages/snacks/snacks.component'; 
 import { PotatoComponent } from './pages/potato/potato.component';
 import { SauceComponent } from './pages/sauces/sauce.component';
