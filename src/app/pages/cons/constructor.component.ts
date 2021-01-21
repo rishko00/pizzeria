@@ -1,7 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';	
-import { DataService } from './core/services/data.service';	
-import { Pizza, Ingredient, BasketItem, PizzaBase } from './core/models/models';	
-import { BasketService } from 'core/services/basket.service';	
+import { DataService } from '../../app-core/services/data.service';	
+import { Pizza, Ingredient, BasketItem, PizzaBase } from '../../app-core/models/models';	
+import { BasketService } from '../../app-core/services/basket.service';	
 
 @Component({	
   selector: 'constructor',	

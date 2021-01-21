@@ -1,4 +1,4 @@
-import { BasketItem } from './core/models/models';
+import { BasketItem } from './app-core/models/models';
 
 
 export class BasketService{

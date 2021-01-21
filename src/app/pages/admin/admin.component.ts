@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DataService } from './core/services/data.service';
-import { Order } from './core/models/models';
+import { DataService } from '../../app-core/services/data.service';
+import { Order } from '../../app-core/models/models';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 

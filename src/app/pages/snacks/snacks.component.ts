@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DataService } from './core/services/data.service';
-import { BasketService } from 'core/services/basket.service';
-import { ProductWithChoise, BasketItem } from './core/models/models';
+import { DataService } from '../../app-core/services/data.service';
+import { BasketService } from '../../app-core/services/basket.service';
+import { ProductWithChoise, BasketItem } from './app-core/models/models';
 
 @Component({
   selector: 'snacks',
