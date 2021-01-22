@@ -16,16 +16,6 @@ export class BasketComponent {
   user: string;
   address: string;
   phoneNumber: string;
-  options={ 
-    componentRestrictions:{ 
-      country:["UA"] 
-    } 
-  } 
-  public AddressChange(address: any) { 
-  //setting address from API to local variable 
-   this.address=address.formatted_address 
-} 
-
 
   constructor(private basket: BasketService, private http: HttpClient){
     this.myForm = new FormGroup({

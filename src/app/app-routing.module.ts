@@ -10,9 +10,10 @@ import { SnackComponent } from './pages/snacks/snacks.component';
 import { PotatoComponent } from './pages/potato/potato.component';
 import { SauceComponent } from './pages/sauces/sauce.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
+import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
-    { path: '', component: PizzaComponent},
+    { path: '', component: MainComponent},
     { path: 'pizza', component: PizzaComponent},
     { path: 'basket', component: BasketComponent},
     { path: 'constructor', component: ConstructorComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
     { path: 'snacks', component: SnackComponent },
     { path: 'potato', component: PotatoComponent },
     { path: 'sauces', component: SauceComponent },
-    { path: 'drinks', component: DrinksComponent }
+    { path: 'drinks', component: DrinksComponent },
+    { path: 'main', component: MainComponent}
 
 ];
 

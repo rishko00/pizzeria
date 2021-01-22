@@ -18,8 +18,6 @@
   <div class="totalprice"><b>Сума замовлення: {{basket.getTotalPrice()}} грн</b></div>
   <div><button class="orderbtn" (click)="showOrderForm()">Оформити замовлення</button></div>
 </div>
-<input ngx-google-places-autocomplete [options]= 
-   'options'  (onAddressChange)="AddressChange($event)"/> 
 <div id="order" on-click="hideOrderForm($event)">
   <div class="orderform">
     <form [formGroup]="myForm" (ngSubmit)="toOrder()">
