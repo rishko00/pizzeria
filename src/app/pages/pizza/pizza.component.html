@@ -1,11 +1,11 @@
 <div class="container1">
-  <div class="product" *ngFor="let p of pizza">
+  <div class="product" *ngFor="let p of pizza; let i = index" id="pizza{{i}}">
     <ul>
       <li><img class="productimage" src="{{ p.image }}"/></li>
       <li class="name"><b>{{ p.name }}</b></li>
       <li class="info">{{ p.info | slice:0:54}}...</li>
       <li class="sizebtns">
-        <button *ngFor="let size of p.prices | keyvalue" id="{{p.name}} {{size.key}}" class="sizebtn" (click)="setSize(p, size.key)">{{ size.key }}</button>
+        <button *ngFor="let size of p.prices | keyvalue" class="sizebtn" (click)="setSize(p, size.key)">{{ size.key }}</button>
       </li>
       <li class="price"><b>{{ p.price }} грн</b>
         <button class="basketbtn" (click)="addPizzaToBasket(p)">В кошик</button>
@@ -27,13 +27,13 @@
           </li>
       </ul>
     </div>
-  <div class="pizzaitem">
+  <div class="pizzaitem" >
       <ul>
         <li class="name"><b>{{ showPizza.name }}</b></li>
         <li class="info">{{ showPizza.info }}</li>
         <li><img class="pizzaimage" src="{{ showPizza.image }}"/></li>
         <li class="sizebtns">
-          <button *ngFor="let size of showPizza.prices | keyvalue" id="{{showPizza.name}} {{size.key}}" class="sizebtn" (click)="setSize(showPizza, size.key)">{{ size.key }}</button>
+          <button *ngFor="let size of showPizza.prices | keyvalue" id="pizza{{pizza.indexOf(showPizza)}}" class="sizebtn" (click)="setSize(showPizza, size.key)">{{ size.key }}</button>
         </li>
         <li class="price">{{ basketitem.totalPrice }} грн
           <div id="basketbtn" class="basketbtn" (click)="addPizzaToBasket()">В кошик</div>

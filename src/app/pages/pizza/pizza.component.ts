@@ -15,7 +15,7 @@ export class PizzaComponent {
   basketitem: BasketItem = new BasketItem(new Pizza('','',{}, ''), 0, 1);
   ingredients: Ingredient[] = [];
 
-  constructor(private data: DataService, private basket: BasketService) { }
+  constructor(private data: DataService, private basket: BasketService) {}
 
   ngOnInit(){
     this.data.getPizza().subscribe((data) => {
@@ -43,9 +43,13 @@ export class PizzaComponent {
       }
     }
 
-    document.getElementById(p.name + ' ' + size).classList.add('sizebtnchecked');
-    for(let i in p.prices){
-      if(i != size) document.getElementById(p.name + ' ' + i).classList.remove('sizebtnchecked');
+    let changePizza = document.querySelectorAll(`#pizza${this.pizza.indexOf(p)}`);
+    for(let i of changePizza){
+      let sizeButton = i.getElementsByClassName('sizebtn');
+      for(let j of sizeButton){
+        if(j.textContent == size) j.classList.add('sizebtnchecked');
+        else j.classList.remove('sizebtnchecked');
+      }
     }
   }
 

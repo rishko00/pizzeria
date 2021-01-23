@@ -13,7 +13,7 @@ import { DrinksComponent } from './pages/drinks/drinks.component';
 import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
-    { path: '', component: MainComponent},
+    { path: '', component: PizzaComponent},
     { path: 'pizza', component: PizzaComponent},
     { path: 'basket', component: BasketComponent},
     { path: 'constructor', component: ConstructorComponent},
