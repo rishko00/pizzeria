@@ -7,17 +7,24 @@
     </ul>
     <div class="auth"> &#10154;</div>
   </div>
-  <nav>
-    <div class="links">
-      <a routerLink="main">Головна</a>
-      <a routerLink="pizza">Піца</a>
-      <a routerLink="constructor">Конструктор піци</a>
-      <a routerLink="snacks">Снеки</a>
-      <a routerLink="potato">Картопля</a>
-      <a routerLink="drinks">Напої</a>
-      <a routerLink="sauces">Соуси</a>
-    </div>
-    <div class="basket" routerLink="basket">{{ basket.getLength() }}</div>
+  <nav class="navbar navbar-expand-md navbar-inverse navbar-custom">
+    <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon">
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a routerLink="main">Головна</a></li>
+        <li class="nav-item"><a routerLink="pizza">Піца</a></li>
+        <li class="nav-item"><a routerLink="constructor">Конструктор піци</a></li>
+        <li class="nav-item"><a routerLink="snacks">Снеки</a></li>
+        <li class="nav-item"><a routerLink="potato">Картопля</a></li>
+        <li class="nav-item"><a routerLink="drinks">Напої</a></li>
+        <li class="nav-item"><a routerLink="sauces">Соуси</a></li>
+      </ul>
+    </div>  
   </nav>
+ 
 </div>
+
 <router-outlet></router-outlet>

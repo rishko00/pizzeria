@@ -47,18 +47,13 @@ ul{
   background-color: #e30613;
 }
 
-nav{
+/* nav{
   display: flex;
   justify-content: space-between;
   height: 80px;
-}
+} */
 
-.links{
-  display: flex;
-}
-
-.links > a{
-  display: block;
+a{
   font: 16px arial;
   text-decoration: none;
   color: white;
@@ -66,26 +61,41 @@ nav{
   margin: 10px;
 }
 
-.links > a:hover{
+a:hover{
   color: #e30613;
   text-decoration: underline;
 }
 
-.links > a:focus{
+a:focus{
   color: #e30613;
 }
 
-nav .basket{
-  background: url("https://img1.freepng.ru/20180401/rsw/kisspng-computer-icons-trade-basket-add-to-cart-button-5ac1893833fa53.8202610115226330162129.jpg") 100% 100% no-repeat;
+.basket{
+  background: url("https://thumbs.dreamstime.com/b/red-cart-icon-shopping-online-isolated-white-basket-purchase-shop-trolley-symbol-e-commerce-clip-art-concept-186328972.jpg") 100% 100% no-repeat;
   background-size: cover;
-  opacity: 0.5;
-  border-radius: 10px;
+  border-radius: 50%;
+  border: 1px solid red;
   flex-basis: 100px;
   height: 90px;
   width: 90px;
-  color: white;
+  color: red;
 }
 
+.basketcount{
+  font-size: 24px;
+  border: 1px solid red;
+  background-color: white;;
+}
 
+.navbar.navbar-custom {
+  background-color: transparent;
+}
 
+.custom-toggler.navbar-toggler { 
+    border-color: white; 
+    color: white;
+} 
 
+.navbar-toggler {
+  color: white /* Changes regular toggle color */
+}
