@@ -1,5 +1,5 @@
 <div class="orders">
-	<div class="order" *ngFor="let o of orders[pageNumber]">
+	<div class="order" *ngFor="let o of orders">
 		<ol>
 			<li *ngFor="let i of o.items">
 				{{ i.item.name }}, {{ i.item.price }} грн<span *ngIf="i.item.size">, {{ i.item.size }}</span>
@@ -15,11 +15,6 @@
 		<div>{{ o.phoneNumber }}</div>
 		<div>{{ o.address }}</div>
 		<div><input type="checkbox" [(ngModel)]="o.processed"></div>
-			<div><button (click)="deleteOrder(o)">delete</button></div>
+			<div><button class="deletebtn" (click)="deleteOrder(o)"></button></div>
 		</div>
-    <div *ngIf="orders.length > 1">
-      <div class="pages" *ngFor="let o of orders; let i = index">
-        <div (click)="setPageNumber(i)">{{ i }}</div>
-      </div>
-    </div>
 </div>

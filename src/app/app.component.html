@@ -5,7 +5,7 @@
         <li class="number"><b>+38 (044) 000 00 00</b></li>
         <li class="info">Цілодобова доставка</li>
     </ul>
-    <div class="auth"> &#10154;</div>
+    <a routerLink="{{authLink}}" class="auth"> &#10154;</a>
   </div>
   <nav class="navbar navbar-expand-md navbar-inverse navbar-custom">
     <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -23,6 +23,7 @@
         <li class="nav-item"><a routerLink="sauces">Соуси</a></li>
       </ul>
     </div>  
+     <div class="basket" routerLink="basket"><b class="basketcount"> {{ basket.getLength() }} </b></div>
   </nav>
  
 </div>

@@ -17,7 +17,6 @@ import { PotatoComponent } from './pages/potato/potato.component';
 import { SauceComponent } from './pages/sauces/sauce.component';
 import { DrinksComponent } from './pages/drinks/drinks.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MainComponent } from './pages/main/main.component';
 
 let firebaseConfig = {
   apiKey: "AIzaSyDYEr4fNYYIDy-XNIk8g4Uht-WVJtmFPkE",
@@ -32,7 +31,7 @@ let firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent, SnackComponent,
-    PotatoComponent, SauceComponent, DrinksComponent, MainComponent
+    PotatoComponent, SauceComponent, DrinksComponent,
   ],
   imports: [
     FormsModule,

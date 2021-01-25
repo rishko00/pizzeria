@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BasketService } from './app-core/services/basket.service';
+import { AuthService } from './app-core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,7 @@ import { BasketService } from './app-core/services/basket.service';
 
 export class AppComponent {
   countOfItems: number = this.basket.getLength();
-  constructor(private basket: BasketService){}
+  authLink: string = this.auth.isLoggedIn ? 'list' : 'auth';
+
+  constructor(private basket: BasketService, private auth: AuthService){}
 }

@@ -4,10 +4,10 @@ import { AuthService } from '../../app-core/services/auth.service';
 import { Injectable } from  '@angular/core';
 
 @Injectable({
-    providedIn:  'root'
+    providedIn: 'root'
 })
 
-export class AdminGuard implements CanActivate{
+export class AdminGuard implements CanActivate {
   constructor(public auth: AuthService){};
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | boolean{
