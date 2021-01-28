@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Online shop for pizza delivery with simple admin interface.
 Technologies: TypeScript, CSS Flexbox, Angular 10, Firebase.
-#For authentication use email test@test.com and password 11111111.
+For authentication use email test@test.com and password 11111111.
 
 ## Development server
 
