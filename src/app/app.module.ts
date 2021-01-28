@@ -31,7 +31,7 @@ let firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent, PizzaComponent, BasketComponent, ConstructorComponent, AuthComponent, AdminComponent, SnackComponent,
-    PotatoComponent, SauceComponent, DrinksComponent,
+    PotatoComponent, SauceComponent, DrinksComponent
   ],
   imports: [
     FormsModule,

@@ -1,4 +1,5 @@
 <div class="orders">
+  <div>Замовлення: <button (click)="auth.logout()">Вийти</button>
 	<div class="order" *ngFor="let o of orders">
 		<ol>
 			<li *ngFor="let i of o.items">

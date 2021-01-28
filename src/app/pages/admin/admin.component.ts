@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../app-core/services/data.service';
+import { AuthService } from '../../app-core/services/auth.service';
 import { Order } from '../../app-core/models/models';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
@@ -14,7 +15,7 @@ export class AdminComponent {
   orders = [];
   pageNumber: number = 0;
 
-  constructor(private data: DataService, private http: HttpClient){}
+  constructor(private data: DataService, private http: HttpClient, private auth: AuthService){}
 
   ngOnInit(){
     this.data.getOrders().subscribe((data) => {
